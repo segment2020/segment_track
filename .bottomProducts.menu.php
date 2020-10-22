@@ -1,0 +1,53 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Каталог товаров",
+		"/catalog/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Хиты",
+		"/hits/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Бренды",
+		"/brands/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Новинки",
+		"/new/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Акции", 
+		"/stock/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Каталоги продукции",
+		"/catalogspdf/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Лицензии",
+		"/license/",
+		Array(),
+		Array(),
+		""
+	)
+);
+?>

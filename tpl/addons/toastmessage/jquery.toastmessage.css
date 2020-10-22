@@ -1,0 +1,125 @@
+.toast-container {
+    width: 280px;
+    z-index: 9999;
+}
+* html .toast-container {
+    position: absolute;
+}
+.toast-item {
+    height: auto;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    color: #eee;
+    padding: 16px 14px 16px 40px;
+    display: block;
+    position: relative;
+    margin: 0 0 12px 0;
+    background-color: #fff;
+    border: 1px solid #d3dce7;
+    -webkit-box-shadow: 0 4px 15px rgba(17, 39, 68, 0.15);;
+    -moz-box-shadow: 0 4px 15px rgba(17, 39, 68, 0.15);;
+    box-shadow: 0 4px 15px rgba(17, 39, 68, 0.15);;
+}
+.toast-item h6 {
+    margin-bottom: 10px;
+}
+.toast-item p {
+    color: #384658;
+    line-height: 18px;
+}
+.toast-item-close {
+    background: url('images/icons/close-notify.svg') center center no-repeat;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+}
+.toast-item-image {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.toast-item-image-notice {
+    background: url('images/icons/nitofy_icon.svg');
+}
+/*.toast-item-image-success {
+    background:url(../images/success.png);
+}
+
+.toast-item-image-warning {
+    background:url(../images/warning.png);
+}
+
+.toast-item-image-error {
+    background:url(../images/error.png);
+}*/
+
+/**
+ * toast types
+ *
+ * pattern: toast-type-[value]
+ * where 'value' is the real value of the plugin option 'type'
+ *
+ */
+.toast-type-notice {
+    color: white;
+}
+.toast-type-success {
+    color: white;
+}
+.toast-type-warning {
+    color: white;
+    border-color: #fcbd57;
+}
+.toast-type-error {
+    color: white;
+    border-color: #b32b2b;
+}
+/**
+ * positions
+ *
+ * pattern: toast-position-[value]
+ * where 'value' is the real value of the plugin option 'position'
+ *
+ */
+.toast-position-top-left {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+}
+.toast-position-top-center {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    margin-left: -140px;
+}
+.toast-position-top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+.toast-position-middle-left {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    margin-top: -40px;
+}
+.toast-position-middle-center {
+    position: fixed;
+    left: 50%;
+    margin-left: -140px;
+    margin-top: -40px;
+    top: 50%;
+}
+.toast-position-middle-right {
+    position: fixed;
+    right: 20px;
+    margin-left: -140px;
+    margin-top: -40px;
+    top: 50%;
+}

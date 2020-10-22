@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Баннеры";
+$arDirProperties = Array(
+
+);
+?>

@@ -1,0 +1,32 @@
+<?
+	if (isset($_POST['name']) && (!empty($_POST['name']))
+		&& isset($_POST['email']) && (!empty($_POST['email']))
+		&& isset($_POST['title']) && (!empty($_POST['title']))
+		&& isset($_POST['comment']) && (!empty($_POST['comment']))
+		)
+    {
+		$email = $_POST['email'];
+		$reg = "/[0-9a-z_\.\-]+@[0-9a-z_\.\-]+\.[a-z]{2,5}/i";
+		if (!preg_match($reg, $email)) // Нет совпадения.
+			exit('Bad email');
+
+		$APPLICATION->RestartBuffer();
+		$arEventFields = array(
+				"NAME" => $_POST["name"],
+				"EMAIL" => $_POST["email"],
+                "TITLE" => $_POST["title"],
+				"COMMENTS" => $_POST["comment"]
+		);
+
+		$eventId = CEvent::Send("feedBack", SITE_ID, $arEventFields);
+		// pre($eventId);
+		if ($eventId) {
+			echo json_encode(array("success" => true, "message" => "Спасибо за обращение, мы свяжемся с Вами в ближайшее время!"));
+		}else{
+			echo json_encode(array("success" => false, "message" => "Не удалось отправить сообщение, свяжитесь с администратором сайта!"));
+		}
+		die();
+	}else{
+		$this->IncludeComponentTemplate();
+	}
+?>

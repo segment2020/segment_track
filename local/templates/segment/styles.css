@@ -1,0 +1,242 @@
+.bx-component-opener a, #bx-panel-top a {
+    transition-duration: unset;
+}
+
+.example {
+    border: 2px solid red;
+    color: red;
+    padding: 20px;
+}
+
+.eventsblock-onside .newsbimg.weekend .calendbottom {
+    padding: 0;
+}
+
+.eventsblock-onside .newsbitem:first-child {
+    margin-bottom: 20px;
+}
+
+.newsbitem p {
+    margin-bottom: 12px;
+}
+
+.search-result__block .infotagfull {
+    font-size: 0;
+    top: -2px;
+    position: relative;
+}
+
+.infotagfull.newscomptag:hover {
+    background-color: #d63535;
+    color: white;
+}
+
+.infotagfull.newstag:hover {
+    background-color: #ffb20d;
+    color: white;
+}
+
+.infotagfull.livetag:hover {
+    background-color: #509bc3;
+    color: white;
+}
+
+.infotagfull:hover a {
+    color: white;
+}
+
+.search-result__block .infotagfull a {
+    display: none;
+}
+
+.search-result__block .infotagfull a:last-child {
+    display: inherit;
+    font-size: 11px;
+}
+
+.search-news-spacer {
+    padding: 5px;
+}
+.container-fluid-spacer { 
+    padding: 10px;
+}
+
+.detailblock h1 {
+    margin: 14px 0 13px;
+}
+
+.companyLink {
+    font-size: 14px;
+}
+
+.companyLink::before {
+    content: "|";
+    color: initial !important;
+}
+
+.capcha-img {
+    margin-right: 10px;
+}
+
+.reg-agree {
+    margin-top: 10px;
+}
+
+.reg-agree a {
+    color: #509bc3;
+}
+.bcblock {
+    margin-bottom: 0px;
+}
+.banner-top-margin {
+    margin-top: 20px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.alt-banner_united {
+    background-color: ghostwhite;
+    background-size: contain;
+    background-position: center left;
+    height: 60px;
+}
+
+.hamburger {
+    font: inherit;
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 15px;
+    cursor: pointer;
+    transition-timing-function: linear;
+    transition-duration: .15s;
+    transition-property: opacity, filter;
+    text-transform: none;
+    color: inherit;
+    border: 0;
+    background-color: transparent;
+}
+
+.hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 24px;
+}
+
+.hamburger--boring .hamburger-inner, .hamburger--boring .hamburger-inner::after, .hamburger--boring .hamburger-inner::before {
+    transition-property: none;
+}
+
+.hamburger--boring .hamburger-inner {
+    top: calc(50% + 3px);
+}
+
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+    border-radius: 3px;
+    background-color: #ef4142;
+}
+
+.hamburger-inner::after, .hamburger-inner::before {
+    display: block;
+    content: "";
+}
+
+.hamburger-inner::after {
+    bottom: -9px;
+}
+
+.hamburger-inner::before {
+    top: -9px;
+} 
+ 
+.btn-mobile-nav .hamburger {
+    padding: 19px;
+}
+
+.btn-mobile-nav .icon-icons_main-14 {
+    color: #ef4142;
+    font-size: 25px;
+    line-height: 0;
+    vertical-align: middle;
+    padding: 25px;
+}
+.mm-spn a.logo {
+    width: 100%;
+    background-position: center center;
+    background-color: white;
+    margin: 0;
+} 
+.navbar-mobile.bg-color2 { 
+    position: relative;
+}
+.navbar-mobile a { 
+    font-size: 23px;
+    font-weight: 700;
+}
+.navbar-mobile .bg-color-white { 
+    background-color: white;
+    padding: 15px 0 10px;
+}  
+.bg-color1 a,
+.bg-color2 a {
+    color: white;
+}
+.bg-color-white a { 
+    color: #e12a2c;
+}
+.navbar-mobile .bg-color1 {
+    padding: 10px 0;
+    color: white;
+    background-color: #f83233;
+}
+.navbar-mobile .bg-color2 {
+    padding: 10px 0;
+    color: white; 
+    background-color: #c92929!important;
+}   
+.mm-spn.mm-spn--light { 
+    background-color: #c92929!important;
+}
+#mmenu-close {
+    color: #009bc7; 
+    right: 23%;
+}
+.ermadeby {
+    line-height: 40px;
+}
+
+.newsblock.mainblockBig {
+    max-height: none;
+  }
+.not-index-page  .news-block-scroll {
+      height: auto;
+  }
+.tableblockitem .textblock .titleblock {
+    display: inline;
+    line-height: 14px;
+}
+.soc-icons { 
+    width: 40px; 
+    height: 40px; 
+    display: block;
+    margin: 30px 5px 0 5px;
+}
+.footerinfo .descr {
+    display: flex;
+}
+div.detailcontent p img {
+    max-width: 100%;
+    height: 100%;
+}
+.detailblock .detailcontent table {
+    width: 100%;
+    overflow: auto;
+    display: block;
+}

@@ -1,0 +1,10 @@
+<?
+return array (
+  'memoris' => 
+  array (
+    'tag' => 'p',
+    'title' => 'Ýòî ñòèëü Memo',
+  ),
+  'example' => 'Ð¢ÐµÑÑ‚Ð¾Ð²Ñ‹Ð¹ ÑÑ‚Ð¸Ð»ÑŒ',
+);
+?>

@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Хиты";
+$arDirProperties = Array(
+
+);
+?>

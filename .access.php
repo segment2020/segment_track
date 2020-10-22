@@ -1,0 +1,12 @@
+<?
+$PERM["bannerstatistic"]["2"]="D";
+$PERM["bannerstatistic"]["3"]="D";
+$PERM["bannerstatistic"]["4"]="D";
+$PERM["bannerstatistic"]["8"]="D";
+$PERM["bannerstatistic"]["5"]="D";
+$PERM["bannerstatistic"]["6"]="D";
+$PERM["bannerstatistic"]["7"]="D";
+$PERM["bannerstatistic"]["*"]="D";
+$PERM["personal"]["2"]="D";
+$PERM["/"]["*"]="R";
+?>

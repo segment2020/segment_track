@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Скрепка";
+$arDirProperties = Array(
+
+);
+?>

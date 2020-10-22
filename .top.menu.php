@@ -1,0 +1,64 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Канцтовары", 
+		"/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Участники рынка", 
+		"/company/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		"/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Статьи", 
+		"/lifeIndustry/", 
+		Array(), 
+		Array("disabled"=>"Y"), 
+		"" 
+	),
+	Array(
+		"Медиа", 
+		"/photovideo/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	/*Array(
+		"Форум", 
+		"/forum/", 
+		Array(), 
+		Array(), 
+		"" 
+	),*/
+	Array(
+		"События", 
+		"/events/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+
+if ((1 == $USER->GetByID()) && $USER->IsAdmin())
+{
+	$aMenuLinks[] = Array(
+		"Статистика", 
+		"/bannerstatistic/", 
+		Array(), 
+		Array(), 
+		"" 
+	);
+}
+?>

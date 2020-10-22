@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Неплательщики";
+$arDirProperties = Array(
+
+);
+?>

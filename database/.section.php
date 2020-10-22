@@ -1,0 +1,6 @@
+<?
+$sSectionName = "dataBase";
+$arDirProperties = Array(
+
+);
+?>
