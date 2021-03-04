@@ -32,7 +32,7 @@ else
 		} else {
 			echo '<div class="submenu collapse" id="lkmenu1">';
 		}
-
+ 
 		$APPLICATION->IncludeComponent("bitrix:menu", "leftMenu", Array(
 			"COMPONENT_TEMPLATE" => "vertical_multilevel",
 				"ROOT_MENU_TYPE" => "leftMenuPersonalPage",	// Тип меню для первого уровня

@@ -3,18 +3,18 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новинки компаний");
 ?>
 <div class="container-fluid">
-		<div class="row row-flex">
-			<div class="col-sm-3 col-xs-12 order-xs-1">
-				<div class="row">
-					<?	// Разделение на список и детальную...
-						if (CSite::InDir('/news/companynews/index.php'))
-							$APPLICATION->IncludeFile('/tpl/include_area/bannersContent.php', array('includeArea' => array('actualtoday', 'defaulters', 'komments', 'photogallery')), array());
-						else
-							$APPLICATION->IncludeFile('/tpl/include_area/bannersContent.php', array('includeArea' => array('actualtoday', 'defaulters', 'komments', 'top100')), array());
-					?>
-				</div>	
-			</div>
-			<div class="col-sm-9 col-xs-12 content-margin">
+	<div class="row row-flex">
+		<div class="col-sm-3 col-xs-12 order-xs-1">
+			<div class="row">
+				<?	// Разделение на список и детальную...
+					if (CSite::InDir('/companynews/index.php'))
+						$APPLICATION->IncludeFile('/tpl/include_area/bannersContent.php', array('includeArea' => array('actualtoday', 'defaulters', 'komments', 'photogallery')), array());
+					else
+						$APPLICATION->IncludeFile('/tpl/include_area/bannersContent.php', array('includeArea' => array('actualtoday', 'defaulters', 'komments', 'top100')), array()); 
+				?>
+			</div>	
+		</div>
+		<div class="col-sm-9 col-xs-12 content-margin">
 <?
 // Новинки.
 $APPLICATION->IncludeComponent(
@@ -110,7 +110,7 @@ $APPLICATION->IncludeComponent(
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "newsCustom",
-		"SEF_FOLDER" => "/new/",
+		"SEF_FOLDER" => "/productnews/",
 		"MESSAGES_PER_PAGE" => "3",
 		"USE_CAPTCHA" => "Y",
 		"REVIEW_AJAX_POST" => "Y",

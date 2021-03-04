@@ -13,11 +13,11 @@
 $this->setFrameMode(true);
 
 // pre($arParams);
-// pre($arResult);
+console_log($arResult);
 ?>
 
 
-<div class="col-xs-9 content-margin">
+<div class="col-sm-9 col-xs-12 content-margin">
 <h1><? echo $arResult['NAME']; ?></h1>
 
 <? if ('OK' == $_GET['msg']) { ?>

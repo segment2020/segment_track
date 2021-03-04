@@ -82,7 +82,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.icon-lk_user {
+  font-size: 24px;
+  color: #009bc7;
+}
 /* line 126, ../../sass/fonts.scss */
 .icon-icons_main-01:before {
   content: "\e900";

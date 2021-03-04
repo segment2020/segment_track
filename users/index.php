@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Пользователи");
 ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-3 content-margin">
+		<div class="col-sm-3 col-xs-12 content-margin">
 			<div class="row">
 				<?$APPLICATION->IncludeFile('/tpl/widgets/left/newitems.php', array(), array());?>
 				<div class="col-xs-12 content-margin">
@@ -21,7 +21,7 @@ $APPLICATION->SetTitle("Пользователи");
 				<?$APPLICATION->IncludeFile('/tpl/widgets/left/pricelists.php', array(), array());?>
 			</div>
 		</div>
-		<div class="col-xs-9 content-margin">
+		<div class="col-sm-9 col-xs-12 content-margin">
 		<h1>
 			Список пользователей
 		</h1>

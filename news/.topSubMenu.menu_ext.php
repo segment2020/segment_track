@@ -1,18 +1,39 @@
 <?
 $aMenuLinks = Array(
 	Array(
+		"Новости отрасли", 
+		"/industrynews/", 
+		Array(), 
+		Array(), 
+		""
+	),
+	Array(
 		"Новости компаний", 
-		"/news/companynews/", 
+		"/companynews/", 
+		Array(), 
+		Array(), 
+		""
+	),
+	Array(
+		"Новинки", 
+		"/productnews/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Новости отрасли", 
-		"/news/industrynews/", 
+		"Акции", 
+		"/stock/", 
 		Array(), 
 		Array(), 
-		"" 
-	)
+		""
+	),
+	// Array(
+	// 	"События отрасли ?", 
+	// 	"/???/", 
+	// 	Array(), 
+	// 	Array(), 
+	// 	"" 
+	// ),
 );
 ?>

@@ -106,6 +106,13 @@
   .nomarginleft1320 {
     margin-left: 0 !important;
   }
+  
+  .btn-mobile-nav .icon-icons_main-11::before {
+    content: "\e937";
+    font-size: 24px;
+    font-weight: 300;
+    color: #ef4142;
+  }
 } 
 
 @media screen and (max-width: 992px) {
@@ -291,6 +298,11 @@
     background-color: #c92929;
   }
   .btn-mobile-nav .icon-icons_main-14 {
+    color: #009bc7;
+  }
+  .btn-mobile-nav .icon-icons_main-11::before {
+    content: "\e937";
+    font-size: 24px;
     color: #009bc7;
   }
   .hamburger .hamburger-box {
@@ -707,6 +719,12 @@
   .block-default.detailblock {
     padding-left: 20px;
     padding-right: 20px;
+  } 
+  .inner-notify-cookie {
+    padding: 50px 90px 50px 10px;
+  }
+  .close-notify {
+    right: 10px;
   }
 }
 

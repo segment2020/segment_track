@@ -1,6 +1,6 @@
 <div class="col-xs-12 content-margin">
 	<div class="block-default newblock leftin block-shadow">
-		<a href="/new/"><div class="block-title"><i class="icon-icons_main-07"></i>Новинки</div></a>
+		<a href="/productnews/"><div class="block-title"><i class="icon-icons_main-07"></i>Новинки</div></a>
 <?
 	// Новинки.
 $APPLICATION->IncludeComponent("bitrix:news.list", "newLeftWidget", Array(
@@ -16,7 +16,7 @@ $APPLICATION->IncludeComponent("bitrix:news.list", "newLeftWidget", Array(
 		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
 		"CACHE_TYPE" => "A",	// Тип кеширования
 		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
-		"DETAIL_URL" => "#SITE_DIR#/new/#ELEMENT_CODE#/",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DETAIL_URL" => "#SITE_DIR#/productnews/#ELEMENT_CODE#/",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
 		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
 		"DISPLAY_DATE" => "Y",	// Выводить дату элемента
 		"DISPLAY_NAME" => "Y",	// Выводить название элемента
@@ -66,7 +66,7 @@ $APPLICATION->IncludeComponent("bitrix:news.list", "newLeftWidget", Array(
 );
 ?>
 		<div class="text-center buttonblock">
-			<a class="btn btn-blue" href="/new/">Все новинки<i class="icon-icons_main-10"></i></a>
+			<a class="btn btn-blue" href="/productnews/">Все новинки<i class="icon-icons_main-10"></i></a>
 		</div>
 	</div>
 </div>

@@ -1,17 +1,17 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Фото", 
-		"/photovideo/photogallery/", 
+		"Фотогалереи", 
+		"/photogallery/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Видео", 
-		"/photovideo/videogallery/", 
+		"/videogallery/", 
 		Array(), 
-		Array(), 
+		Array(),  
 		"" 
 	)
 );

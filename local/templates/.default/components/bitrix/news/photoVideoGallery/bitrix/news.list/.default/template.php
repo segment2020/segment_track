@@ -65,13 +65,13 @@ foreach($arResult["ITEMS"] as $arItem)
 
 	switch ($page)
 	{
-		case '/photovideo/videogallery/':
+		case '/videogallery/':
 		{
 			$categoryName = 'Видеоальбом';
 			break;
 		}
 
-		case '/photovideo/photogallery/':
+		case '/photogallery/':
 		{
 			$categoryName = 'Фотоальбом';
 			break;

@@ -40,7 +40,7 @@ if (CModule::IncludeModule("iblock") && !empty($arUser['UF_ID_COMPANY']))
 }
 ?>
 
-<div class="col-xs-3 content-margin" id="aside1">
+<div class="col-sm-3 col-xs-12 content-margin" id="aside1">
 	<div id="getFixed" class="lkmenuslide">
 		<div class=" content-margin">
 			<div class="block-default block-shadow lk_userinfo clearfix">
@@ -70,7 +70,7 @@ if (CModule::IncludeModule("iblock") && !empty($arUser['UF_ID_COMPANY']))
 	</div>
 </div>
 
-<div class="col-xs-9 content-margin" id="article"> <!-- Закрывающий тэг в щаблоне следующего компонента("bitrix:news.list", "companyProfilePriceList") который подключен на index.php -->
+<div class="col-sm-9 col-xs-12 content-margin" id="article"> <!-- Закрывающий тэг в щаблоне следующего компонента("bitrix:news.list", "companyProfilePriceList") который подключен на index.php -->
 
 <form name="iblock_add" action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
 	<?=bitrix_sessid_post()?>

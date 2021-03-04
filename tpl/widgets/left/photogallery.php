@@ -22,7 +22,7 @@ $APPLICATION->IncludeComponent("bitrix:news.list", "PhotoGalleryInDetail", Array
 			2 => "",
 		),
 		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
-		"DETAIL_URL" => "/photovideo/photogallery/#ELEMENT_CODE#/",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DETAIL_URL" => "/photogallery/#ELEMENT_CODE#/",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
 		"AJAX_MODE" => "N",	// Включить режим AJAX
 		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
 		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей

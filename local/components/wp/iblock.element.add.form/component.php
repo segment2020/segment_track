@@ -25,7 +25,7 @@ if($arParams["IBLOCK_ID"] > 0)
 	$bWorkflowIncluded = ($arIBlock["WORKFLOW"] == "Y") && CModule::IncludeModule("workflow");
 	$bBizproc = ($arIBlock["BIZPROC"] == "Y") && CModule::IncludeModule("bizproc");
 }
-else
+else 
 {
 	$arIBlock = false;
 	$bWorkflowIncluded = CModule::IncludeModule("workflow");
@@ -115,7 +115,7 @@ if ($bAllowAccess)
 			"VALUE" => $arSection["NAME"]
 		);
 	}
-	
+	 
 	$COL_COUNT = intval($arParams["DEFAULT_INPUT_SIZE"]);
 	if($COL_COUNT < 1)
 		$COL_COUNT = 30;
@@ -245,9 +245,9 @@ if ($bAllowAccess)
 	}
 	elseif ($USER->GetID())
 	{
-		// было 
+		// пїЅпїЅпїЅпїЅ 
 		//	$arFilter["CREATED_BY"] = $USER->GetID();
-		// стало. Проверка на присутствие пользователя в сотрудниках компании, если да то присвоение $arFilter["CREATED_BY"] = $arFilds['CREATED_BY']
+		// пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ $arFilter["CREATED_BY"] = $arFilds['CREATED_BY']
 		$res = CIBlockElement::GetByID($arParams["ID"]);
 		if ($ar_res = $res->GetNextElement()) {
 			$arFilds = $ar_res->GetFields();
@@ -282,11 +282,7 @@ if ($bAllowAccess)
 		// get current iblock element
 
 		$rsIBlockElements = CIBlockElement::GetList(array("SORT" => "ASC"), $arFilter);
-
-		if ($arElement = $rsIBlockElements->Fetch())
-		{
-			$bAllowAccess = true;
-
+		if (CSite::InGroup(array(1))) {
 			if ($bWorkflowIncluded)
 			{
 				$LAST_ID = CIBlockElement::WF_GetLast($arElement['ID']);
@@ -310,12 +306,41 @@ if ($bAllowAccess)
 					$bAllowAccess = false;
 				}
 			}
-		}
-		else
-		{
-			ShowError(GetMessage("IBLOCK_ADD_ELEMENT_NOT_FOUND"));
-			$bAllowAccess = false;
-		}
+		} else {
+			if ($arElement = $rsIBlockElements->Fetch()) 
+			{
+				$bAllowAccess = true;
+
+				if ($bWorkflowIncluded)
+				{
+					$LAST_ID = CIBlockElement::WF_GetLast($arElement['ID']);
+					if ($LAST_ID != $arElement["ID"])
+					{
+						$rsElement = CIBlockElement::GetByID($LAST_ID);
+						$arElement = $rsElement->Fetch();
+					}
+
+					if (!in_array($arElement["WF_STATUS_ID"], $arParams["STATUS"]))
+					{
+						ShowError(GetMessage("IBLOCK_ADD_ACCESS_DENIED"));
+						$bAllowAccess = false;
+					}
+				}
+				else
+				{
+					if (in_array("INACTIVE", $arParams["STATUS"]) === true && $arElement["ACTIVE"] !== "N")
+					{
+						ShowError(GetMessage("IBLOCK_ADD_ACCESS_DENIED"));
+						$bAllowAccess = false;
+					}
+				}
+			}
+			else
+			{
+				ShowError(GetMessage("IBLOCK_ADD_ELEMENT_NOT_FOUND"));
+				$bAllowAccess = false;
+			}
+		} 
 	}
 	elseif ($arParams["MAX_USER_ENTRIES"] > 0 && $USER->GetID())
 	{
@@ -392,7 +417,7 @@ if ($bAllowAccess)
 					$arUpdatePropertyValues[$propertyID] = array();
 					
 					if ($propertyID == PROPERTY_ID_IMAGES_IN_GALLERY_PHOTO) {
-						// ZZZ добавление картинок через загрузчик.
+						// ZZZ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 						foreach ($arPropertyValue as $key => $value)
 						{
 							if (strpos($key, 'n') !== false) {
@@ -421,7 +446,7 @@ if ($bAllowAccess)
 						//ZZZ
 					}
 					elseif ($propertyID == PROPERTY_ID_ADD_PHOTO_IN_CATALOG) {
-						// ZZZ добавление картинок через загрузчик.
+						// ZZZ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 						foreach ($arPropertyValue as $key => $value)
 						{
 							if (strpos($key, 'n') !== false) {
@@ -506,11 +531,16 @@ if ($bAllowAccess)
 				{
 					if($arResult["PROPERTY_LIST_FULL"][$propertyID]["PROPERTY_TYPE"] == "F")
 					{
-						$arFile = $_FILES["PROPERTY_FILE_".$propertyID."_0"];
-						$arFile["del"] = $_REQUEST["DELETE_FILE"][$propertyID][0] == "Y" ? "Y" : "";
-						$arUpdateValues[$propertyID] = $arFile;
-						if ($arParams["MAX_FILE_SIZE"] > 0 && $arFile["size"] > $arParams["MAX_FILE_SIZE"])
-							$arResult["ERRORS"][] = GetMessage("IBLOCK_ERROR_FILE_TOO_LARGE");
+						if ($_FILES["PROPERTY_FILE_".$propertyID."_0"]["error"] == 4) { // РЎСЂР°Р±РѕС‚Р°РµС‚ РїСЂРё РєРѕРїРёСЂРѕРІР°РЅРёРё РјР°С‚РµСЂРёР°Р»Р° 
+							$arFile = CFile::GetPath($arProperties[$propertyID][0]);
+							$arUpdateValues[$propertyID] = $arFile;
+						} else {	 
+							$arFile = $_FILES["PROPERTY_FILE_".$propertyID."_0"];
+							$arFile["del"] = $_REQUEST["DELETE_FILE"][$propertyID][0] == "Y" ? "Y" : "";
+							$arUpdateValues[$propertyID] = $arFile;
+							if ($arParams["MAX_FILE_SIZE"] > 0 && $arFile["size"] > $arParams["MAX_FILE_SIZE"])
+								$arResult["ERRORS"][] = GetMessage("IBLOCK_ERROR_FILE_TOO_LARGE");
+						} 
 					}
 					elseif($arResult["PROPERTY_LIST_FULL"][$propertyID]["PROPERTY_TYPE"] == "HTML")
 					{
@@ -722,7 +752,7 @@ if ($bAllowAccess)
 					array(/*"IBlockPermission" => $arResult["IBLOCK_PERM"],*/ "AllUserGroups" => $arCurrentUserGroups, "DocumentStates" => $arDocumentStates)
 				);
 			}
-
+ 
 			if(!$canWrite)
 				$arResult["ERRORS"][] = GetMessage("CC_BIEAF_ACCESS_DENIED_STATUS");
 
@@ -750,7 +780,7 @@ if ($bAllowAccess)
 		}
 
 		if (empty($arResult["ERRORS"]))
-		{
+		{ 
 			if ($arParams["ELEMENT_ASSOC"] == "PROPERTY_ID")
 				$arUpdatePropertyValues[$arParams["ELEMENT_ASSOC_PROPERTY"]] = $USER->GetID();
 			$arUpdateValues["MODIFIED_BY"] = $USER->GetID();
@@ -760,7 +790,7 @@ if ($bAllowAccess)
 			if ($bWorkflowIncluded && strlen($arParams["STATUS_NEW"]) > 0)
 			{
 				$arUpdateValues["WF_STATUS_ID"] = $arParams["STATUS_NEW"];
-				$arUpdateValues["ACTIVE"] = "Y";
+				// $arUpdateValues["ACTIVE"] = "Y";
 			}
 			elseif($bBizproc)
 			{
@@ -777,23 +807,23 @@ if ($bAllowAccess)
 					if ($arParams["ID"] <= 0 )
 						$arUpdateValues["BP_PUBLISHED"] = "N";
 				}
-				$arUpdateValues["ACTIVE"] = "Y";
+				// $arUpdateValues["ACTIVE"] = "Y";
 			}
 			else
 			{
-				if ($arParams["STATUS_NEW"] == "ANY")
-				{
-					$arUpdateValues["ACTIVE"] = "N";
-				}
-				elseif ($arParams["STATUS_NEW"] == "N")
-				{
-					$arUpdateValues["ACTIVE"] = "Y";
-				}
-				else
-				{
-					if ($arParams["ID"] <= 0 )
-						$arUpdateValues["ACTIVE"] = "N";
-				}
+				// if ($arParams["STATUS_NEW"] == "ANY")
+				// {
+				// 	$arUpdateValues["ACTIVE"] = "N";
+				// }
+				// elseif ($arParams["STATUS_NEW"] == "N")
+				// {
+				// 	$arUpdateValues["ACTIVE"] = "Y";
+				// }
+				// else
+				// {
+				// 	if ($arParams["ID"] <= 0 )
+				// 		$arUpdateValues["ACTIVE"] = "N";
+				// }
 			}
 
 			// update existing element
@@ -861,7 +891,7 @@ if ($bAllowAccess)
 				}
 			}
 		}
-
+ 
 		if($bBizproc && empty($arResult["ERRORS"]))
 		{
 			$arBizProcWorkflowId = array();

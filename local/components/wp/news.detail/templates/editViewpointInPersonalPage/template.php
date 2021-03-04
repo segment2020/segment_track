@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 <form name="iblock_add" action="/editelement/?edit=Y&CODE=<? echo $arResult['ID']; ?>" method="POST" enctype="multipart/form-data" class='addItemFromPersonalPage'>
 	<?=bitrix_sessid_post()?>
 
-<div class="col-xs-9 content-margin" id="article">
+<div class="col-sm-9 col-xs-12 content-margin" id="article">
 <?
 if (isset($_GET['errorStr']) && !empty($_GET['errorStr'])) {
 ?>
@@ -79,12 +79,12 @@ $APPLICATION->IncludeFile('/tpl/include_area/dateActiveFrom.php', array('dateAct
 
 <?
 //*********************************************************************************************************************************
-$APPLICATION->IncludeFile('/tpl/include_area/addPicture.php',
-							array('previewPictureSrc' => $arResult["PREVIEW_PICTURE"]["SRC"],
-									'previewPictureId' => $arResult["PREVIEW_PICTURE"]["ID"],
-									'detailPictureSrc' => $arResult["DETAIL_PICTURE"]["SRC"],
-									'detailPictureId' => $arResult["DETAIL_PICTURE"]["ID"]),
-							array());
+// $APPLICATION->IncludeFile('/tpl/include_area/addPicture.php',
+// 							array('previewPictureSrc' => $arResult["PREVIEW_PICTURE"]["SRC"],
+// 									'previewPictureId' => $arResult["PREVIEW_PICTURE"]["ID"],
+// 									'detailPictureSrc' => $arResult["DETAIL_PICTURE"]["SRC"],
+// 									'detailPictureId' => $arResult["DETAIL_PICTURE"]["ID"]),
+// 							array());
 //*********************************************************************************************************************************
 
 // pre($arResult);

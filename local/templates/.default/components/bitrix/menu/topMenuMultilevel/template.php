@@ -8,7 +8,7 @@
 <ul class="nav navbar-nav">
 
 <?
-
+ 
 	//pre($arResult);
 
 $previousLevel = 0;

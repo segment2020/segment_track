@@ -16,6 +16,9 @@ $this->setFrameMode(true);
 // pre($arResult['IBLOCK']['DESCRIPTION']);
 $tmp = explode(',', $arResult['IBLOCK']['DESCRIPTION']);
 $text = $tmp[0];
+
+$iframeYouTube = getYoutubeEmbedUrl($arResult["PROPERTIES"]["videoiFrame"]["VALUE"]);
+
 ?>
 <div class="photogaldetblock block-default in block-shadow content-margin detailblock">
 <?
@@ -100,7 +103,7 @@ $text = $tmp[0];
 			<div class="col-xs-12 content-margin">
 				<div class="block-default block-shadow">
 					<div class="videoifame">
-						<? echo $arResult["PROPERTIES"]["videoiFrame"]["~VALUE"]; ?>
+						<? echo $iframeYouTube; ?>
 					</div>
 				</div>
 			</div>

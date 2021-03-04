@@ -45,10 +45,10 @@ if ($USER->IsAuthorized()) //Если пользователь авторизо�
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="content-margin">
             <div class="list-group block-shadow lk_lmenu clearfix" id="collapselkmenu">
-                <?$APPLICATION->IncludeFile('/tpl/include_area/personalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
+                <?$APPLICATION->IncludeFile('/tpl/include_area/newPersonalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
             </div>
         </div>
     </div>

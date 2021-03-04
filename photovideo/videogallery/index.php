@@ -100,7 +100,7 @@ $APPLICATION->IncludeComponent(
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "photoVideoGallery",
-		"SEF_FOLDER" => "/photovideo/videogallery/",
+		"SEF_FOLDER" => "/videogallery/",
 		"MESSAGES_PER_PAGE" => "10",
 		"USE_CAPTCHA" => "Y",
 		"REVIEW_AJAX_POST" => "Y",

@@ -27,7 +27,7 @@ if (CModule::IncludeModule("iblock"))
 		$arFields = $ob->GetFields();
 }
 ?>
-<div class="col-xs-3 content-margin" id="article">
+<div class="col-sm-3 col-xs-12 content-margin" id="article">
 		<div id="getFixed" class="lkmenuslide">
 			<div class=" content-margin">
 				<div class="block-default block-shadow lk_userinfo clearfix">
@@ -51,7 +51,7 @@ if (CModule::IncludeModule("iblock"))
 			</div>
 			<div class="content-margin">
 				<div class="list-group block-shadow lk_lmenu clearfix" id="collapselkmenu">
-					<?$APPLICATION->IncludeFile('/tpl/include_area/personalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
+					<?$APPLICATION->IncludeFile('/tpl/include_area/newPersonalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
 				</div>
 			</div>
 		</div>
@@ -151,7 +151,7 @@ if (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 else
 {
 ?>
-	<div class="col-xs-3 content-margin" id="article">
+	<div class="col-sm-3 col-xs-12 content-margin" id="article">
 		<a href="/personal/company/news/?iBlockId=<? echo IBLOCK_ID_NEWS_COMPANY; ?>" class="list-group-item">Новости компании</a>
 		<a href="/personal/company/news/?iBlockId=<? echo IBLOCK_ID_NEWS_INDUSTRY; ?>" class="list-group-item">Новости отрасли</a>
 	</div>

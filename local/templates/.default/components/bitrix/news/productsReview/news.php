@@ -11,7 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
+ 
 $elemNum = $arParams["NEWS_COUNT"];
 if (isset($_POST['elemNum']) && !empty($_POST['elemNum']))
 {
@@ -75,7 +75,7 @@ if ($_REQUEST['companyid']) {
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"",
+	"", 
 	Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],

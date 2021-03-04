@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Фото/Видео");
+$APPLICATION->SetTitle("Фото и Видео");
 ?>
 <div class="container-fluid">
 	<div class="row row-flex">
@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Фото/Видео");
 			</div>
 		</div>
 		<div class="col-sm-9 col-xs-12 content-margin">
-			<h1>Фото и видео</h1>
+			<h1><? echo $APPLICATION->sDocTitle; ?></h1>
 			<div class="row">
 				<div class="col-xs-6 cell-12-xs">
 <?
@@ -38,7 +38,7 @@ $APPLICATION->IncludeComponent(
 			2 => "companyId",
 		),
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "/photovideo/photogallery/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/photogallery/#ELEMENT_CODE#/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
@@ -116,7 +116,7 @@ $APPLICATION->IncludeComponent(
 			1 => "companyId",
 		),
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "/photovideo/videogallery/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/videogallery/#ELEMENT_CODE#/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",

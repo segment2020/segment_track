@@ -25,7 +25,7 @@ $APPLICATION->IncludeComponent("bitrix:news.list", "newListInDetail", Array(
 			3 => "",
 		),
 		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
-		"DETAIL_URL" => "/new/#ELEMENT_CODE#/",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DETAIL_URL" => "/productnews/#ELEMENT_CODE#/",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
 		"AJAX_MODE" => "N",	// Включить режим AJAX
 		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
 		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
@@ -75,5 +75,5 @@ $APPLICATION->IncludeComponent("bitrix:news.list", "newListInDetail", Array(
 		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
 	),
 	false
-);
+); 
 ?>

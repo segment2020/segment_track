@@ -114,11 +114,11 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 	<form name="iblock_add" action="/editelement/" method="POST" enctype="multipart/form-data" class='addItemFromPersonalPage' id='newProduct'>
 	<?=bitrix_sessid_post()?>
 
-	<div class="col-xs-9 content-margin" id="article">
+	<div class="col-sm-9 col-xs-12 content-margin" id="article">
 		<h1>Добавить товар</h1>
 		<div class="block-default in block-shadow content-margin">
 			<div class="row">
-				<div class="col-xs-9">
+				<div class="col-sm-9 col-xs-12">
 					<div class="lk_companycatchek">
 					<?
 						$disabled = '';
@@ -132,7 +132,7 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 						<div class="mycheckbox"><label><input name="<? echo 'PROPERTY[' . $arProps['hit']['ID'] . ']'; ?>" type="checkbox" <? echo $disabled; ?> value="<? echo $propId; ?>">Хит</label></div>
 					</div>
 				</div>
-				<div class="col-xs-3">
+				<div class="col-sm-3 col-xs-12">
 					<div class="lk_companycatchek">
 						<div class="mycheckbox">
 							Осталось: <? echo $arFields['PROPERTY_PAIDHITSNUM_VALUE']; ?>
@@ -247,12 +247,12 @@ $APPLICATION->IncludeFile('/tpl/include_area/dateActiveFrom.php', array('dateAct
 
 <?
 //*********************************************************************************************************************************
-$APPLICATION->IncludeFile('/tpl/include_area/addPicture.php',
-							array('previewPictureSrc' => $arResult["PREVIEW_PICTURE"]["SRC"],
-									'previewPictureId' => $arResult["PREVIEW_PICTURE"]["ID"],
-									'detailPictureSrc' => $arResult["DETAIL_PICTURE"]["SRC"],
-									'detailPictureId' => $arResult["DETAIL_PICTURE"]["ID"]),
-							array());
+// $APPLICATION->IncludeFile('/tpl/include_area/addPicture.php',
+// 							array('previewPictureSrc' => $arResult["PREVIEW_PICTURE"]["SRC"],
+// 									'previewPictureId' => $arResult["PREVIEW_PICTURE"]["ID"],
+// 									'detailPictureSrc' => $arResult["DETAIL_PICTURE"]["SRC"],
+// 									'detailPictureId' => $arResult["DETAIL_PICTURE"]["ID"]),
+// 							array());
 //*********************************************************************************************************************************
 ?>
 

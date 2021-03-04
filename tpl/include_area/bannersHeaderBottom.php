@@ -1,152 +1,152 @@
 <?
-$page = $APPLICATION->GetCurPage(false);
-$tmp = explode('/', $page);
+// $page = $APPLICATION->GetCurPage(false);
+// $tmp = explode('/', $page);
 
-switch ($tmp[1])
-{
-	case '':
-	{
-		$hostingPage = 90;
-		break;
-	}
+// switch ($tmp[1])
+// {
+// 	case '':
+// 	{
+// 		$hostingPage = 90;
+// 		break;
+// 	}
 
-	case 'company':
-	{
-		$hostingPage = 91;
-		// $hostingPage = IBLOCK_ID_COMPANY;
-		break;
-	}
+// 	case 'company':
+// 	{
+// 		$hostingPage = 91;
+// 		// $hostingPage = IBLOCK_ID_COMPANY;
+// 		break;
+// 	}
 
-	case 'news':
-	{
-		// if ('companynews' == $tmp[2])
-			// $hostingPage = IBLOCK_ID_NEWS_COMPANY;
-		// elseif ('industrynews' == $tmp[2])
-			// $hostingPage = IBLOCK_ID_NEWS_INDUSTRY;
+// 	case 'news':
+// 	{
+// 		// if ('companynews' == $tmp[2])
+// 			// $hostingPage = IBLOCK_ID_NEWS_COMPANY;
+// 		// elseif ('industrynews' == $tmp[2])
+// 			// $hostingPage = IBLOCK_ID_NEWS_INDUSTRY;
 
-		if ('companynews' == $tmp[2])
-			$hostingPage = 92;
-		elseif ('industrynews' == $tmp[2])
-			$hostingPage = 95;
-		break;
-	}
+// 		if ('companynews' == $tmp[2])
+// 			$hostingPage = 92;
+// 		elseif ('industrynews' == $tmp[2])
+// 			$hostingPage = 95;
+// 		break;
+// 	}
 
-	case 'catalog':
-	{
-		$hostingPage = 93;
-		// $hostingPage = IBLOCK_ID_CATALOG;
-		break;
-	}
+// 	case 'catalog':
+// 	{
+// 		$hostingPage = 93;
+// 		// $hostingPage = IBLOCK_ID_CATALOG;
+// 		break;
+// 	}
 
-	case 'stock':
-	{
-		// $hostingPage = IBLOCK_ID_STOCK;
-		$hostingPage = 94;
-		break;
-	}
+// 	case 'stock':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_STOCK;
+// 		$hostingPage = 94;
+// 		break;
+// 	}
 
-	case 'analytics':
-	{
-		// $hostingPage = IBLOCK_ID_ANALYTICS;
-		$hostingPage = 97;
-		break;
-	}
+// 	case 'analytics':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_ANALYTICS;
+// 		$hostingPage = 97;
+// 		break;
+// 	}
 
-	case 'lifeIndustry':
-	{
-		// $hostingPage = IBLOCK_ID_LIFE_INDUSTRY;
-		$hostingPage = 98;
-		break;
-	}
+// 	case 'lifeIndustry':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_LIFE_INDUSTRY;
+// 		$hostingPage = 98;
+// 		break;
+// 	}
 
-	case 'viewpoint':
-	{
-		// $hostingPage = IBLOCK_ID_VIEWPOINT;
-		$hostingPage = 99;
-		break;
-	}
+// 	case 'viewpoint':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_VIEWPOINT;
+// 		$hostingPage = 99;
+// 		break;
+// 	}
 
-	case 'photovideo':
-	{
-		// if ('photogallery' == $tmp[2])
-			// $hostingPage = IBLOCK_ID_GALLERY_PHOTO;
-		// elseif ('videogallery' == $tmp[2])
-			// $hostingPage = IBLOCK_ID_GALLERY_VIDEO;
+// 	case 'photovideo':
+// 	{
+// 		// if ('photogallery' == $tmp[2])
+// 			// $hostingPage = IBLOCK_ID_GALLERY_PHOTO;
+// 		// elseif ('videogallery' == $tmp[2])
+// 			// $hostingPage = IBLOCK_ID_GALLERY_VIDEO;
 
-		if ('photogallery' == $tmp[2])
-			$hostingPage = 100;
-		elseif ('videogallery' == $tmp[2])
-			$hostingPage = 101;
-		break;
-	}
+// 		if ('photogallery' == $tmp[2])
+// 			$hostingPage = 100;
+// 		elseif ('videogallery' == $tmp[2])
+// 			$hostingPage = 101;
+// 		break;
+// 	}
 
-	case 'events':
-	{
-		// $hostingPage = IBLOCK_ID_EVENTS;
-		$hostingPage = 102;
-		break;
-	}
+// 	case 'events':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_EVENTS;
+// 		$hostingPage = 102;
+// 		break;
+// 	}
 
-	case 'brands':
-	{
-		// $hostingPage = IBLOCK_ID_BRANDS;
-		$hostingPage = 104;
-		break;
-	}
+// 	case 'brands':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_BRANDS;
+// 		$hostingPage = 104;
+// 		break;
+// 	}
 
-	case 'license':
-	{
-		$hostingPage = 105;
-		// $hostingPage = IBLOCK_ID_LICENSE;
-		break;
-	}
+// 	case 'license':
+// 	{
+// 		$hostingPage = 105;
+// 		// $hostingPage = IBLOCK_ID_LICENSE;
+// 		break;
+// 	}
 
-	case 'top100':
-	{
-		// $hostingPage = PAGE_TOP_100;
-		$hostingPage = 109;
-		break;
-	}
+// 	case 'top100':
+// 	{
+// 		// $hostingPage = PAGE_TOP_100;
+// 		$hostingPage = 109;
+// 		break;
+// 	}
 
-	case 'defaulters':
-	{
-		// $hostingPage = IBLOCK_ID_DEFAULTERS;
-		$hostingPage = 96;
-		break;
-	}
+// 	case 'defaulters':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_DEFAULTERS;
+// 		$hostingPage = 96;
+// 		break;
+// 	}
 
-	case 'actualToday':
-	{
-		// $hostingPage = PAGE_ACTUAL_TODAY;
-		$hostingPage = 110;
-		break;
-	}
+// 	case 'actualToday':
+// 	{
+// 		// $hostingPage = PAGE_ACTUAL_TODAY;
+// 		$hostingPage = 110;
+// 		break;
+// 	}
 
-	case 'new':
-	{
-		// $hostingPage = IBLOCK_ID_NOVETLY;
-		$hostingPage = 106;
-		break;
-	}
+// 	case 'new':
+// 	{
+// 		// $hostingPage = IBLOCK_ID_NOVETLY;
+// 		$hostingPage = 106;
+// 		break;
+// 	}
 
-	case 'catalogspdf':
-	{
-		$hostingPage = 107;
-		break;
-	}
+// 	case 'catalogspdf':
+// 	{
+// 		$hostingPage = 107;
+// 		break;
+// 	}
 
-	case 'users':
-	{
-		$hostingPage = 108;
-		break;
-	}
+// 	case 'users':
+// 	{
+// 		$hostingPage = 108;
+// 		break;
+// 	}
 
-	default:
-		$hostingPage = 0;
-}
+// 	default:
+// 		$hostingPage = 0;
+// }
 
-if (90 == $hostingPage)
-{
+// if (90 == $hostingPage) закоментим всё, теперь баннеры сквозные
+// {
 	if ($top)
 		$params = array(DA_BODY_TOP_LEFT, DA_BODY_TOP_RIGHT);
 	else
@@ -156,19 +156,19 @@ if (90 == $hostingPage)
 	$arFilter = Array("IBLOCK_ID" => IBLOCK_ID_BANNERS, 'PROPERTY_hostingPage' => $hostingPage, 'PROPERTY_displayingArea' => $params, "ACTIVE"=>"Y");
 
 	$property = 'PROPERTY_DISPLAYINGAREA_ENUM_ID';
-}
-else
-{
-	if ($top)
-		$params = array(DA_BODY_TOP_LEFT_OTHER_PAGE, DA_BODY_TOP_RIGHT_OTHER_PAGE);
-	else
-		$params = array(DA_BODY_BOTTOM_LEFT_OTHER_PAGE, DA_BODY_BOTTOM_RIGHT_OTHER_PAGE);
+// }
+// else
+// {
+// 	if ($top)
+// 		$params = array(DA_BODY_TOP_LEFT_OTHER_PAGE, DA_BODY_TOP_RIGHT_OTHER_PAGE);
+// 	else
+// 		$params = array(DA_BODY_BOTTOM_LEFT_OTHER_PAGE, DA_BODY_BOTTOM_RIGHT_OTHER_PAGE);
 
-	$arSelect = Array('ID', "PROPERTY_companyId", 'PROPERTY_type', "PROPERTY_htmlCode", 'PROPERTY_flash', 'DETAIL_PICTURE', 'PROPERTY_displayingAreaOtherPage');
-	$arFilter = Array("IBLOCK_ID" => IBLOCK_ID_BANNERS, 'PROPERTY_hostingPage' => $hostingPage, 'PROPERTY_displayingAreaOtherPage' => $params, "ACTIVE"=>"Y");
+// 	$arSelect = Array('ID', "PROPERTY_companyId", 'PROPERTY_type', "PROPERTY_htmlCode", 'PROPERTY_flash', 'DETAIL_PICTURE', 'PROPERTY_displayingAreaOtherPage');
+// 	$arFilter = Array("IBLOCK_ID" => IBLOCK_ID_BANNERS, 'PROPERTY_hostingPage' => $hostingPage, 'PROPERTY_displayingAreaOtherPage' => $params, "ACTIVE"=>"Y");
 
-	$property = 'PROPERTY_DISPLAYINGAREAOTHERPAGE_ENUM_ID';
-}
+// 	$property = 'PROPERTY_DISPLAYINGAREAOTHERPAGE_ENUM_ID';
+// }
 
 
 $left = $right = $viewLeft = $viewRight = false;

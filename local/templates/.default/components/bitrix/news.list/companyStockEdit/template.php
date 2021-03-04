@@ -12,12 +12,12 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
-// pre($arResult);
+ console_log($arResult);
 //pre($arParams);
 ?>
 
 
-<div class="col-xs-9 content-margin">
+<div class="col-sm-9 col-xs-12 content-margin">
 <h1><? echo $arResult['NAME']; ?></h1>
 
 <? if ('OK' == $_GET['msg']) { ?>
@@ -26,8 +26,8 @@ $this->setFrameMode(true);
 	</div>
 <?}?>
 
-<div class='row'>
-	<div class="col-xs-12 content-margin">
+<div class='row'> 
+	<div class="col-xs-12 content-margin"> 
 		<a href="/personal/company<? echo $arResult['SECTION_PAGE_URL']; ?>edit/?iBlockId=<? echo $arResult['ID']; ?>&iBlockType=<? echo $arResult['IBLOCK_TYPE_ID']; ?>">
 			<div class='col-xs-12 btn btn-blue-full minbr'>
 				<span class="plus">+</span>

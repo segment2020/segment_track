@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
-//pre($arResult);
+console_log($arResult);
 
 $tmp = explode(',', $arResult['DESCRIPTION']);
 $linkDescription = $tmp[0];

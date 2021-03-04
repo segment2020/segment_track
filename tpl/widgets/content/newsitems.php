@@ -1,31 +1,17 @@
-<?
-	if (isset($iBlockId) && !empty($iBlockId))
-		$blockId = $iBlockId;
-	elseif ($fixid)
-		$blockId = $fixid;
-	else
-		$blockId = IBLOCK_ID_NEWS_COMPANY;
-
-	if (isset($detailPageFolder) && !empty($detailPageFolder))
-		$detailPage = $detailPageFolder;
-	elseif ($fixurl)
-		$detailPage = $fixurl;
-	else
-		$detailPage = '/news/companynews/';
-
+<?  
 	global $arfilter;
 
 	$arfilter['PROPERTY_companyId'] = $company_id;
 	$arfilter['!ID'] = $curent_news_id;
-// pre($detailPage);
-// pre($blockId, EXIT_PRE);
+// pre($detailPageFolder);
+// pre($iBlockId, EXIT_PRE);
 	$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"newsListInDetail", 
 	array(
 		"COMPONENT_TEMPLATE" => "newsListInDetail",
 		"IBLOCK_TYPE" => "News",
-		"IBLOCK_ID" => $blockId,
+		"IBLOCK_ID" => $iBlockId,
 		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "ID",
 		"SORT_ORDER1" => "DESC",
@@ -42,7 +28,7 @@
 			2 => "",
 		),
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => $detailPage."#ELEMENT_CODE#/",
+		"DETAIL_URL" => $detailPageFolder."#ELEMENT_CODE#/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",

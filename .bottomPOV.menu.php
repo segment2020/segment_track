@@ -1,8 +1,15 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Мнения", 
-		"/viewpoint/", 
+		"Предстоящие события", 
+		"/events/futureevents/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Прошедшие события", 
+		"/events/pastevents/", 
 		Array(), 
 		Array(), 
 		"" 

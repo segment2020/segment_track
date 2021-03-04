@@ -165,7 +165,7 @@
     font-size: 25px;
     line-height: 0;
     vertical-align: middle;
-    padding: 25px;
+    padding: 19px;
 }
 .mm-spn a.logo {
     width: 100%;
@@ -228,15 +228,41 @@
     display: block;
     margin: 30px 5px 0 5px;
 }
-.footerinfo .descr {
+.footerinfo .descr {    
     display: flex;
+    margin: 0 -5px;
 }
 div.detailcontent p img {
     max-width: 100%;
-    height: 100%;
+    height: auto;
 }
 .detailblock .detailcontent table {
     width: 100%;
     overflow: auto;
     display: block;
+}
+.sourceblock .title {
+    display: inline;
+}
+.notify-cookie {
+    color: black;
+}
+.inner-notify-cookie {
+    padding: 50px 190px 50px 10px;
+    position: relative;
+}
+.close-notify {
+    position: absolute;
+    top: calc(50% - 25px);
+    right: 100px;
+    height: 50px;
+    width: 50px;
+    background-color: #509bc3!important;
+}
+.mfp-close:active {  
+    top: calc(50% - 24px);
+}
+#mmenu-close,
+.search-form_top .mfp-close:active {  
+    top: 1px;
 }

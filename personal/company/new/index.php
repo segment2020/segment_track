@@ -27,7 +27,7 @@ if (CModule::IncludeModule("iblock"))
 		$arFields = $ob->GetFields();
 }
 ?>
-<div class="col-xs-3 content-margin" id="article">
+<div class="col-sm-3 col-xs-12 content-margin" id="article">
 		<div id="getFixed" class="lkmenuslide">
 			<div class=" content-margin">
 				<div class="block-default block-shadow lk_userinfo clearfix">
@@ -51,7 +51,7 @@ if (CModule::IncludeModule("iblock"))
 			</div>
 			<div class="content-margin">
 				<div class="list-group block-shadow lk_lmenu clearfix" id="collapselkmenu">
-					<?$APPLICATION->IncludeFile('/tpl/include_area/personalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
+					<?$APPLICATION->IncludeFile('/tpl/include_area/newPersonalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
 				</div>
 			</div>
 		</div>
@@ -63,10 +63,10 @@ $arrFilter = array("ACTIVE" => array("Y", "N"), 'PROPERTY_companyId' => $arUser[
 
 // Новинки компании.
 $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"companyNewsListEdit", 
+	"bitrix:news.list",  
+	"companyMaterialList", 
 	array(
-		"COMPONENT_TEMPLATE" => "companyNewsListEdit",
+		"COMPONENT_TEMPLATE" => "companyMaterialList",
 		"IBLOCK_TYPE" => "-",
 		"IBLOCK_ID" => IBLOCK_ID_NOVETLY,
 		"NEWS_COUNT" => "10",

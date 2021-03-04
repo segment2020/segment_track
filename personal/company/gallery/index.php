@@ -51,7 +51,7 @@ if (CModule::IncludeModule("iblock"))
 		</div>
 		<div class="content-margin">
 			<div class="list-group block-shadow lk_lmenu clearfix" id="collapselkmenu">
-				<?$APPLICATION->IncludeFile('/tpl/include_area/personalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
+				<?$APPLICATION->IncludeFile('/tpl/include_area/newPersonalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
 			</div>
 		</div>
 	</div>
@@ -67,7 +67,7 @@ if (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 	if ( (IBLOCK_ID_GALLERY_PHOTO !== $iBlockId) && (IBLOCK_ID_GALLERY_VIDEO !== $iBlockId) )
 		$iBlockId = IBLOCK_ID_GALLERY_PHOTO;
 
-	// Фото и видео компании.
+	// Фото и видео компании. 
 	$APPLICATION->IncludeComponent("bitrix:news.list", "companyPhotoVideoEdit", Array(
 		"COMPONENT_TEMPLATE" => "companyPhotoVideoEdit",
 			"IBLOCK_TYPE" => "-",	// Тип информационного блока (используется только для проверки)
@@ -148,7 +148,7 @@ if (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 else
 {
 ?>
-	<div class="col-xs-3 content-margin" id="article">
+	<div class="col-sm-3 col-xs-12 content-margin" id="article">
 		<a href="/personal/company/gallery/?iBlockId=<? echo IBLOCK_ID_GALLERY_PHOTO; ?>" class="list-group-item">Фотогалерея</a>
 		<a href="/personal/company/gallery/?iBlockId=<? echo IBLOCK_ID_GALLERY_VIDEO; ?>" class="list-group-item">Видеогалерея</a>
 	</div>

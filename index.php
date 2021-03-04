@@ -3,6 +3,19 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("description", "Специализированный B2B портал для специалистов канцелярского рынка. База данных производителей и поставщиков канцелярских, офисных и бумажно-беловых товаров, периодических изданий с канцелярской тематикой.");
 $APPLICATION->SetPageProperty("title", "Сегмент - первый канцелярский портал");
 $APPLICATION->SetTitle("Главная");
+
+$newsFeedOnMain_settingsList = array(
+	0 => array( 'iBlock__id' => IBLOCK_ID_NEWS_COMPANY, 	'iBlock__limit' => '3', 'csstag'=> 'newscomptag' ), // Новости компании.
+	1 => array( 'iBlock__id' => IBLOCK_ID_STOCK, 			'iBlock__limit' => '1', 'csstag'=> 'livetag' ), 	// Акции.
+	2 => array( 'iBlock__id' => IBLOCK_ID_NEWS_INDUSTRY, 	'iBlock__limit' => '2', 'csstag'=> 'newstag' ), 	// Новости отрасли.
+	3 => array( 'iBlock__id' => IBLOCK_ID_ANALYTICS, 		'iBlock__limit' => '2', 'csstag'=> 'newstag' ), 	// Аналитика.
+	4 => array( 'iBlock__id' => IBLOCK_ID_LIFE_INDUSTRY, 	'iBlock__limit' => '2', 'csstag'=> 'newstag' ), 	// Жизнь отрасли.
+	5 => array( 'iBlock__id' => IBLOCK_ID_VIEWPOINT, 		'iBlock__limit' => '2', 'csstag'=> 'livetag' ), 	// Точка зрения.
+	6 => array( 'iBlock__id' => IBLOCK_ID_EVENTS, 			'iBlock__limit' => '2', 'csstag'=> 'newscomptag' ), // События.
+	7 => array( 'iBlock__id' => IBLOCK_ID_PRODUCTS_REVIEW, 	'iBlock__limit' => '2', 'csstag'=> 'newscomptag' ), // Товарные обзоры.
+	8 => array( 'iBlock__id' => IBLOCK_ID_BRANDS, 			'iBlock__limit' => '2', 'csstag'=> 'newscomptag' ), // Бренды. 
+); 
+
 // ratingCalc();
 $hostingPage = 90; // 0 - главная страница.
 $bannersArray = array();
@@ -81,6 +94,7 @@ while ($ob = $res->GetNextElement()) {
 						?>
 					</div>
 				</div>
+				<!-- // Новое на сайте (отображается на мобильной версии) -->
 				<div class="col-xs-12 content-margin visible-xs">
 					<div class="block-default newsblock mainblock block-shadow ">
 						<div class="news-block-title clearfix">
@@ -97,64 +111,12 @@ while ($ob = $res->GetNextElement()) {
 								</select>
 							</div>
 						</div>
-						<div class="news-block-scroll segmentscroll" id='scrollBlock'>
-		<?
-							// Новое на сайте.
+						<div class="news-block-scroll segmentscroll" id='scrollBlock2'>
+						<?
 							$GLOBALS['arrFilter'] = array("!PROPERTY_TOINDEX" => false);
-							$APPLICATION->IncludeComponent(
-			"bitrix:news.index", 
-			"newOnSite", 
-			array(
-				"IBLOCKS" => array(
-					// 0 => "1",
-					1 => "2",
-					2 => "4",
-					3 => "5",
-					4 => "8",
-					5 => "9",
-					6 => "10",
-					7 => "14",
-					8 => "15",
-					9 => "17",
-					109 => "187",
-				),
-				"NEWS_COUNT" => "3",
-				"IBLOCK_SORT_BY" => "ID",
-				"IBLOCK_SORT_ORDER" => "ASC",
-				"SORT_BY1" => "ID",
-				"SORT_ORDER1" => "RAND",
-				"FIELD_CODE" => array(
-					0 => "PREVIEW_TEXT",
-					1 => "PREVIEW_PICTURE",
-					2 => "SHOW_COUNTER",
-					3 => "DATE_CREATE",
-					4 => "FORUM_MESSAGE_CNT",
-					5 => "",
-				),
-				"PROPERTY_CODE" => array(
-					0 => "",
-					1 => "TOINDEX",
-					2 => "actualToday",
-					3 => "FORUM_MESSAGE_CNT",
-					4 => "SHOW_COUNTER",
-					5 => "DATE_CREATE",
-					6 => "",
-				),
-				"FILTER_NAME" => "arrFilter",
-				"IBLOCK_URL" => "",
-				"DETAIL_URL" => "",
-				"ACTIVE_DATE_FORMAT" => "d F Y",
-				"CACHE_TYPE" => "A",
-				"CACHE_TIME" => "1800",
-				"CACHE_GROUPS" => "Y",
-				"COMPONENT_TEMPLATE" => "newOnSite",
-				"IBLOCK_TYPE" => "new",
-				"SORT_BY2" => "SORT",
-				"SORT_ORDER2" => "ASC"
-			),
-			false
-		);
-		?>
+							// Список ID инфоблоков для вывода
+							
+							$APPLICATION->IncludeFile('/tpl/include_area/comp_newsFeedOnMain.php', Array( "newsFeed_settingsList" => $newsFeedOnMain_settingsList )); ?>
 						</div>
 					</div>
 				</div>
@@ -236,7 +198,7 @@ while ($ob = $res->GetNextElement()) {
 		<div class="col-sm-3 col-xs-6 cell-12-xs">
 			<div class="block-default newblock mainblock block-shadow">
 				<div class="block-title titleline-thik">
-					<i class="icon-icons_main-07"></i><a class="notitlestyle" href="/new/">Новинки</a>
+					<i class="icon-icons_main-07"></i><a class="notitlestyle" href="/productnews/">Новинки</a>
 				</div>
 <?
 // Новинки.
@@ -256,7 +218,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "#SITE_DIR#/new/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "#SITE_DIR#/productnews/#ELEMENT_CODE#/",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
 		"DISPLAY_NAME" => "Y",
@@ -375,7 +337,7 @@ $APPLICATION->IncludeComponent(
 */
 ?>
 				<div class="text-center buttonblock">
-					<a class="btn btn-blue" href="/new/">Все новинки<i class="icon-icons_main-10"></i></a>
+					<a class="btn btn-blue" href="/productnews/">Все новинки<i class="icon-icons_main-10"></i></a>
 				</div>
 			</div>
 		</div>
@@ -623,6 +585,7 @@ $APPLICATION->IncludeComponent(
 			</div>
 		</div>
 
+		<!-- // Новое на сайте. (Отображается на десктоп) -->
 		<div class="col-sm-6 col-xs-12 content-margin hidden-xs">
 			<div class="block-default newsblock mainblock block-shadow ">
 				<div class="news-block-title clearfix">
@@ -639,87 +602,13 @@ $APPLICATION->IncludeComponent(
 						</select>
 					</div>
 				</div>
-				<div class="news-block-scroll segmentscroll" id='scrollBlock'>
-<?
-					// Новое на сайте.
+				<div class="news-block-scroll segmentscroll" id='scrollBlock1'>
+				<?
 					$GLOBALS['arrFilter'] = array("!PROPERTY_TOINDEX" => false);
-					$APPLICATION->IncludeComponent(
-	"bitrix:news.index", 
-	"newOnSite", 
-	array(
-		"IBLOCKS" => array(
-			// 0 => "1",
-			1 => "2",
-			2 => "4",
-			3 => "5",
-			4 => "8",
-			5 => "9",
-			6 => "10",
-			7 => "14",
-			8 => "15",
-			9 => "17",
-			109 => "187",
-		),
-		"NEWS_COUNT" => "3",
-		"IBLOCK_SORT_BY" => "ID",
-		"IBLOCK_SORT_ORDER" => "ASC",
-		"SORT_BY1" => "ID",
-		"SORT_ORDER1" => "RAND",
-		"FIELD_CODE" => array(
-			0 => "PREVIEW_TEXT",
-			1 => "PREVIEW_PICTURE",
-			2 => "SHOW_COUNTER",
-			3 => "DATE_CREATE",
-			4 => "FORUM_MESSAGE_CNT",
-			5 => "",
-		),
-		"PROPERTY_CODE" => array(
-			0 => "",
-			1 => "TOINDEX",
-			2 => "actualToday",
-			3 => "FORUM_MESSAGE_CNT",
-			4 => "SHOW_COUNTER",
-			5 => "DATE_CREATE",
-			6 => "",
-		),
-		"FILTER_NAME" => "arrFilter",
-		"IBLOCK_URL" => "",
-		"DETAIL_URL" => "",
-		"ACTIVE_DATE_FORMAT" => "d F Y",
-		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "1800",
-		"CACHE_GROUPS" => "Y",
-		"COMPONENT_TEMPLATE" => "newOnSite",
-		"IBLOCK_TYPE" => "new",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER2" => "ASC"
-	),
-	false
-);
-?>
+					$APPLICATION->IncludeFile('/tpl/include_area/comp_newsFeedOnMain.php', Array( "newsFeed_settingsList" => $newsFeedOnMain_settingsList )); ?>
 				</div>
 			</div> <!-- end div class="block-default newsblock mainblock block-shadow"> -->
-		</div> <!-- end div class="col-sm-6 col-xs-12 content-margin"> -->
-		<script>
-			var selectFilter = document.getElementById('newOnSite');
-			selectFilter.addEventListener('change', function() {
-				var selectIndex = this.selectedIndex;
-				var blockId = this.options[selectIndex].value; 
-
-				$.ajax({
-					type: 'POST',
-					dataType: 'html',
-					url: '/ajax/newAjax.php',
-					data: 'blockId=' + blockId,
-					success: function(request) {
-						document.getElementById('scrollBlock').firstChild.firstChild.innerHTML = '';
-						document.getElementById('scrollBlock').firstChild.firstChild.innerHTML = request;
-					}
-				});
-			});
-		</script>
-		
-		
+		</div> <!-- end div class="col-sm-6 col-xs-12 content-margin"> -->  
 		
 		<div class="col-sm-6 col-xs-12">
 			<div class="row">
@@ -2164,7 +2053,7 @@ $APPLICATION->IncludeComponent(
 			4 => "",
 		),
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "/photovideo/photogallery/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/photogallery/#ELEMENT_CODE#/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
@@ -2246,7 +2135,7 @@ $APPLICATION->IncludeComponent(
 			2 => "",
 		),
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "/photovideo/videogallery/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/videogallery/#ELEMENT_CODE#/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",

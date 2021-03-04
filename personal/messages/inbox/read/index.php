@@ -12,7 +12,7 @@ $arUser = $rsUser->Fetch();
 $APPLICATION->IncludeFile('/tpl/include_area/personalPageLeftSide.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'workPosition' => $arUser["WORK_POSITION"]), array());
 ?>
 
-		<div class="col-xs-9 content-margin">
+		<div class="col-sm-9 col-xs-12 content-margin">
 
 <?
 global $arrFilter;

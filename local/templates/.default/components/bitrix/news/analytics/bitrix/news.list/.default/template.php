@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
-//pre($arResult);
 //pre($arResult["NAV_STRING"]);
 ?>
 

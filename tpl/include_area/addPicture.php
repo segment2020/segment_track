@@ -15,7 +15,7 @@
 					{
 						$name = $arFile['ORIGINAL_NAME'];
 						$src = $arFile['SRC'];
-					}
+					} 
 				}
 				else
 				{
@@ -74,9 +74,6 @@
 <?
 			}
 ?>
-			
-			
-			
 		</div>
 	</div>
 </div>

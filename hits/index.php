@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Хиты");
+$APPLICATION->SetTitle("Канцтовары");
 ?>
 
 <div class="container-fluid">

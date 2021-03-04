@@ -10,11 +10,10 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(true);
+$this->setFrameMode(true); 
 
-// pre($arParams);
-// pre($arResult);
-// pre($arResult["NAV_STRING"]);
+// console_log($arParams);
+// console_log($arResult);
  
 ?>
 
