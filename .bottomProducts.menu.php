@@ -1,19 +1,12 @@
 <?
-$aMenuLinks = Array(
+$aMenuLinks = Array( 
 	Array(
-		"Каталог товаров",
-		"/catalog/",
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Хиты",
-		"/hits/",
+		"Компании",
+		"/company/",
 		Array(),
 		Array(),
 		""
-	),
+	), 
 	Array(
 		"Бренды",
 		"/brands/",
@@ -22,29 +15,15 @@ $aMenuLinks = Array(
 		""
 	),
 	Array(
-		"Новинки",
-		"/new/",
-		Array(),
-		Array(),
-		""
-	),
-	Array(
-		"Акции", 
-		"/stock/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Каталоги продукции",
-		"/catalogspdf/",
-		Array(),
-		Array(),
-		""
-	),
-	Array(
 		"Лицензии",
 		"/license/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Канцтовары",
+		"/hits/",
 		Array(),
 		Array(),
 		""

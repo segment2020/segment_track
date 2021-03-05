@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 <form name="iblock_add" action="/editelement/?edit=Y&CODE=<? echo $arResult['ID']; ?>" method="POST" enctype="multipart/form-data" class='addItemFromPersonalPage'>
 	<?=bitrix_sessid_post()?>
 
-<div class="col-xs-9 content-margin" id="article">
+<div class="col-sm-9 col-xs-12 content-margin" id="article">
 <?
 
 if (isset($_GET['errorStr']) && !empty($_GET['errorStr'])) {
@@ -82,22 +82,7 @@ $APPLICATION->IncludeFile('/tpl/include_area/dateActiveFrom.php', array('dateAct
 					<?	} ?>
 					</select>
 				</div>
-			</div>
-<?
-			$checked = '';
-			if (1 == $arResult['PROPERTIES']['paidOption']['VALUE'])
-				$checked = 'checked';
-?>
-			<div class="col-xs-12">
-				<div class="lk_companycatchek">
-				<?
-					$propertyEnums = CIBlockPropertyEnum::GetList(Array("DEF"=>"DESC", "SORT"=>"ASC"), array("IBLOCK_ID" => $arResult['PROPERTIES']['paidOption']['IBLOCK_ID'], 'CODE' => $arResult['PROPERTIES']['paidOption']['CODE']));
-					if ($enumFields = $propertyEnums->GetNext())
-						$propId = $enumFields['ID'];
-				?>
-						<div class="mycheckbox"><label><input name="<? echo 'PROPERTY[' . $arResult['PROPERTIES']['paidOption']['ID'] . ']'; ?>" type="checkbox" <? echo $checked; ?> value="<? echo $propId; ?>">Платно</label></div>				
-				</div>
-			</div>
+			</div> 
 
 <?
 //*********************************************************************************************************************************

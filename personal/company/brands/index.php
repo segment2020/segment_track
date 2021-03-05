@@ -20,9 +20,9 @@ if ($USER->IsAuthorized()) //Если пользователь авторизо�
 	// Бренды.
 	$APPLICATION->IncludeComponent(
 		"bitrix:news.list", 
-		"companyStockEdit", 
+		"companyMaterialList", 
 		array(
-			"COMPONENT_TEMPLATE" => "companyStockEdit",
+			"COMPONENT_TEMPLATE" => "companyMaterialList",
 			"IBLOCK_TYPE" => "brands",
 			"IBLOCK_ID" => "17",
 			"NEWS_COUNT" => "10",

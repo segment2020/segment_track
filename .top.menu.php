@@ -1,8 +1,29 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Канцтовары", 
-		"/catalog/", 
+		"Новости", 
+		"/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	), 
+	Array(
+		"Лонгриды", 
+		"/longreads/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Мнения", 
+		"/viewpoint/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Медиа", 
+		"/photovideo/", 
 		Array(), 
 		Array(), 
 		"" 
@@ -13,28 +34,7 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	),
-	Array(
-		"Новости", 
-		"/news/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Статьи", 
-		"/lifeIndustry/", 
-		Array(), 
-		Array("disabled"=>"Y"), 
-		"" 
-	),
-	Array(
-		"Медиа", 
-		"/photovideo/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
+	), 
 	/*Array(
 		"Форум", 
 		"/forum/", 
@@ -43,7 +43,7 @@ $aMenuLinks = Array(
 		"" 
 	),*/
 	Array(
-		"События", 
+		"Календарь событий", 
 		"/events/", 
 		Array(), 
 		Array(), 

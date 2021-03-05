@@ -1,14 +1,7 @@
 <?
-$aMenuLinks = Array(
+$aMenuLinks = Array( 
 	Array(
-		"Аналитика", 
-		"/analytics/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Жизнь отрасли", 
+		"Редакционные статьи", 
 		"/lifeIndustry/", 
 		Array(), 
 		Array(), 

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/tpl/css/editor/editor-preview.css" rel="stylesheet" />
+    <script src="/tpl/js/editor/editor-preview.js"></script>
+    <script src="/tpl/js/editor/editor-header.js"></script>
+    <script src="/tpl/js/editor/editor-simple-image.js"></script>
+    <script src="/tpl/js/editor/editor-delimiter.js"></script>
+    <script src="/tpl/js/editor/editor-list.js"></script>
+    <script src="/tpl/js/editor/editor-checklist.js"></script>
+    <script src="/tpl/js/editor/editor-embed.js"></script>
+    <script src="/tpl/js/editor/editor-link.js"></script>
+    <script src="/tpl/js/editor/editor.js"></script>
+
+</head>
+<body>
+
+    <div id="js-editor"></div>
+
+    <button id="save-button">Save</button>
+    <button id="output-button">Load</button>
+    <pre id="output"></pre>
+
+</body>
+
+<script>
+
+    // парсим в Json-строку или domElement
+    function mapDOM(element, json) {
+        var treeObject = {};
+        var parser = new DOMParser();
+        var docNode;
+        docNode = parser.parseFromString(element, "text/html");
+
+        function toTree(element, objectJson, root) {
+            (root) ? (objectJson["time"] = 123123123123) : {};
+            var nodeList = element.childNodes;
+            if (nodeList != null) {
+                if (nodeList.length) {
+                    objectJson["blocks"] = [];
+                    for (var i = 0; i < nodeList.length; i++) {
+                        if (nodeList[i].localName == "parsererror") {
+                            alert("Материал сохранён не в стандартном формате, редактор может отобразить его неполным или некорректным.");
+                            continue;
+                        }
+                        else if (nodeList[i].nodeType == 1) {
+                            if (nodeList[i].tagName == "p") {
+                                objectJson.blocks[objectJson.blocks.length] = {
+                                    "type": "paragraph",
+                                    "data": {
+                                        "text": nodeList[i].innerHTML
+                                    }
+                                }
+                                objectJson["blocks"].push({});
+                                // e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+                            }
+                            else if (nodeList[i].tagName == "DIV" && nodeList[i].className == "ce-preview") {
+                                objectJson.blocks[objectJson.blocks.length] = {
+                                    "type": "preview",
+                                    "data": {
+                                        "value": nodeList[i].firstChild.value
+                                    }
+                                }
+                            }
+                            else {
+                                objectJson.blocks[objectJson.blocks.length] = {
+                                    "type": "paragraph",
+                                    "data": {
+                                        "text": nodeList[i].innerHTML
+                                    }
+                                }
+                            }
+                        } else {
+                            if (nodeList[i].nodeType == 3) {
+                                objectJson.blocks[objectJson.blocks.length] = {
+                                    "type": "paragraph",
+                                    "data": {
+                                        "text": nodeList[i].innerHTML
+                                    }
+                                }
+                            } else {
+                                treeJson(nodeList[i], objectJson["blocks"][objectJson.blocks.length], false);
+                            }
+                        }
+                    }
+                }
+                if (element.attributes != null) {
+                    if (element.attributes.length) {
+                        objectJson["attributes"] = {};
+                        for (var i = 0; i < element.attributes.length; i++) {
+                            objectJson["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
+                        }
+                    }
+                }
+            }
+        }
+        toTree(docNode.querySelector("#edParse"), treeObject, true);
+        treeObject["version"] = "2.19.1";
+        return (json) ? JSON.stringify(treeObject) : treeObject;
+    }
+    // Test-строка - обязательно оборачиваем в div!
+    initElement = "<div id='edParse'><span>text</span>Text2<p>Состоит из <b>12 цветов</b>, которые легко смешиваются друг с другом.</p> <p>Яркая упаковка выполнена по мотивам популярного детского мультсериала «Гигантозавр»: на бирюзовом фоне красуются любимые детские персонажи-динозаврики Рокки, Мазу, Билл и Кроха.</p></div>";
+    newData = mapDOM(initElement, false);
+    // (htmlToJson = (detail) => { 
+    // 	return { 
+    // 		name: detail.tagName, 
+    // 		attributes: Array.from(detail.attributes).map(({name,value}) => ({
+    // 			name,
+    // 			value
+    // 		}))
+    // 	}
+    // })
+    // ()
+
+    var initData = {
+        "time": 5852748512960,
+        "blocks": [
+            {
+                // edTitle
+                "type": "preview",
+                "data": {
+                    "value": "Восковой пластилин «Гигантозавр», 144 г, 12 цветов"
+                }
+            },
+            {
+                //edPreview
+                "type": "paragraph",
+                "data": {
+                    "text": "Пластилин восковой «Гигантозавр» (арт. GGZ-LMCW0112) имеет мягкую текстуру и не прилипает к рукам, сделанные из него детали отлично скрепляются друг с другом."
+                }
+            },
+            // edDetail 
+        ],
+        "version": "2.19.1"
+    }
+    function jsonToHtml(articleObj) {
+        var articleHTML = "";
+        articleObj.map(obj => {
+            switch (obj.type) {
+                case 'caption':
+                    articleHTML += `<h1 class="post_caption"> ${obj.data}  </h1>`
+                    break;
+                case 'paragraph':
+                    // console.log("obj.type = " + obj.type);
+                    articleHTML += `<p class="post_caption"> ${obj.data.text}  </p>`
+                    break;
+                default:
+                    return '';
+            }
+        });
+        return articleHTML;
+    }
+
+
+
+    const editor = new EditorJS({
+        
+        holder: 'js-editor',
+        autofocus: true,
+        hideToolbar: true,
+        tools: {
+            preview: Preview,
+            image: SimpleImage,
+            delimiter: Delimiter,
+            linkTool: LinkTool,
+            header: {
+                class: Header,
+                inlineToolbar: true,
+                config: {
+                    placeholder: 'Заголовок'
+                },
+                shortcut: 'CMD+SHIFT+H'
+            },
+            paragraph: {
+                config: {
+                    placeholder: 'Нажмите Tab для выбора инструмента',
+                    inlineToolbar: true
+                }
+            },
+            list: {
+                class: List,
+                inlineToolbar: true,
+                shortcut: 'CMD+SHIFT+L'
+            },
+            embed: {
+                class: Embed,
+                inlineToolbar: false,
+                config: {
+                    services: {
+                        youtube: true
+                    }
+                }
+            }
+        },
+        i18n: {
+            /**
+             * @type {I18nDictionary}
+             */
+            messages: {
+                ui: {
+                    "blockTunes": {
+                        "toggler": {
+                            "Click to tune": "Нажмите, чтобы настроить",
+                            "or drag to move": "или перетащите"
+                        },
+                    },
+                    "inlineToolbar": {
+                        "converter": {
+                            "Convert to": "Конвертировать в"
+                        }
+                    },
+                    "toolbar": {
+                        "toolbox": {
+                            "Add": "Добавить"
+                        }
+                    }
+                },
+                toolNames: {
+                    "Text": "Параграф",
+                    "Heading": "Заголовок",
+                    "List": "Список",
+                    "Warning": "Примечание",
+                    "Checklist": "Чеклист",
+                    "Quote": "Цитата",
+                    "Code": "Код",
+                    "Delimiter": "Разделитель",
+                    "Raw HTML": "HTML-фрагмент",
+                    "Table": "Таблица",
+                    "Link": "Ссылка",
+                    "Marker": "Маркер",
+                    "Bold": "Полужирный",
+                    "Italic": "Курсив",
+                    "InlineCode": "Моноширинный",
+                },
+                tools: {
+                    "warning": {
+                        "Title": "Название",
+                        "Message": "Сообщение",
+                    },
+                    "link": {
+                        "Add a link": "Вставьте ссылку"
+                    },
+                    "stub": {
+                        'The block can not be displayed correctly.': 'Блок не может быть отображен'
+                    }
+                },
+                blockTunes: {
+                    "delete": {
+                        "Delete": "Удалить"
+                    },
+                    "moveUp": {
+                        "Move up": "Переместить вверх"
+                    },
+                    "moveDown": {
+                        "Move down": "Переместить вниз"
+                    }
+                },
+            }
+        },
+        onReady: () => {
+            if (newData) {
+                editor.render(newData);
+            }
+        },
+        onChange: () => {
+            var titleCaption = document.querySelector('.ce-preview');
+            if (!titleCaption) {
+                editor.blocks.insert('preview', {
+                    value: ""
+                }, {}, 0, true);
+            }
+        }
+    });
+
+    const saveButton = document.getElementById('save-button');
+    const outputButton = document.getElementById('output-button');
+    const inputField = document.getElementById('input');
+
+    saveButton.addEventListener('click', () => {
+        editor.save().then(savedData => {
+            preview = JSON.stringify(savedData, null, 4);
+            console.log(preview);
+        });
+    })
+    outputButton.addEventListener('click', () => {
+        console.log(newData);
+        editor.render(newData);
+    })
+
+    // this.api.blocks.render({
+    //     blocks: [
+    //         {
+    //             type: "caption",
+    //             data: {
+    //                 value: "Тестовый заголовок"
+    //             }
+    //         },
+    //         {
+    //             "type": "paragraph",
+    //             "data": {
+    //                 "text": "Тестовый Параграф",
+    //             }
+    //         },
+    //     ]
+    // });
+//     {
+//     "time": 1608926988628,
+//     "blocks": [
+//         {
+//             "type": "preview",
+//             "data": {
+//                     "value": "Анонс"
+//                 }
+//         },
+//         {
+//             "type": "image",
+//             "data": {
+//                 "file": {
+//                     "url": "https://beta.segment.ru/upload/iblock/a93/post-202767-0-15151000-1555324608.jpg"
+//                 },
+//                 "caption": "Картинка анонса",
+//                 "withBorder": false,
+//                 "stretched": false,
+//                 "withBackground": false
+//             }
+//         },
+//         {
+//             "type": "image",
+//             "data": {
+//                 "file": {
+//                     "url": "https://beta.segment.ru/upload/iblock/4d1/ENXg0SYWkAQNxQP.jpg"
+//                 },
+//                 "caption": "Главная картинка",
+//                 "withBorder": false,
+//                 "stretched": false,
+//                 "withBackground": false
+//             }
+//         },
+//         {
+//             "type": "paragraph",
+//             "data": {
+//                 "text": "test"
+//             }
+//         }
+//     ],
+//     "version": "2.19.1"
+// } 
+</script>
+
+</html>

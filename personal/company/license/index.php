@@ -20,9 +20,9 @@ $arrFilter = array("ACTIVE" => array("Y", "N"), 'PROPERTY_companyId' => $arUser[
 // Лицензии.
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"companyStockEdit", 
+	"companyMaterialList", 
 	array(
-		"COMPONENT_TEMPLATE" => "companyStockEdit",
+		"COMPONENT_TEMPLATE" => "companyMaterialList",
 		"IBLOCK_TYPE" => "license",
 		"IBLOCK_ID" => "18",
 		"NEWS_COUNT" => "10",

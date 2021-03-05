@@ -27,10 +27,10 @@ if (CModule::IncludeModule("iblock"))
 	$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>21), $arSelect);
 	if ($ob = $res->GetNextElement())
 		$arProps = $ob->GetProperties();
-}
+} 
 ?>
 
-<div class="col-xs-3 content-margin" id="aside1">
+<div class="col-sm-3 col-xs-12 content-margin" id="aside1">
 		<div id="getFixed" class="lkmenuslide">
 			<div class=" content-margin">
 				<div class="block-default block-shadow lk_userinfo clearfix">
@@ -54,7 +54,7 @@ if (CModule::IncludeModule("iblock"))
 			</div>
 			<div class="content-margin">
 				<div class="list-group block-shadow lk_lmenu clearfix" id="collapselkmenu">
-					<?$APPLICATION->IncludeFile('/tpl/include_area/personalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
+					<?$APPLICATION->IncludeFile('/tpl/include_area/newPersonalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
 				</div>
 			</div>
 		</div>
@@ -160,7 +160,7 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 	<form name="iblock_add" action="/editelement/" method="POST" id='videoAlbum' enctype="multipart/form-data">
 	<?=bitrix_sessid_post()?>
 
-	<div class="col-xs-9 content-margin" id="article">
+	<div class="col-sm-9 col-xs-12 content-margin" id="article">
 		<h1>Добавить альбом</h1>
 		<div class="block-default in block-shadow content-margin">
 			<div class="row">
@@ -267,15 +267,11 @@ if (IBLOCK_ID_GALLERY_PHOTO === (int)$_REQUEST['iBlockId'])
 }
 elseif (IBLOCK_ID_GALLERY_VIDEO === (int)$_REQUEST['iBlockId'])
 {
-	$id = 'video';
-	$videoFilePropertyId = $arProps['videoFile']['ID'];
+	$id = 'video'; 
 	$videoLinkPropertyId = $arProps['videoiFrame']['ID'];
 ?>
 	<div class="row">
-		<div class="col-xs-12">
-			<div class="btn btn-blue btnplus minbr" id='uploadVideo'>
-				<span class="plus text-center">+</span>Загрузить видео
-			</div>
+		<div class="col-xs-12"> 
 			<div class="btn btn-blue btnplus minbr" id='insertLink'>
 				<span class="plus text-center">+</span>вставить код iFrame
 			</div>
@@ -286,27 +282,7 @@ elseif (IBLOCK_ID_GALLERY_VIDEO === (int)$_REQUEST['iBlockId'])
 				<label class="control-label mainlabel" for="lk_videoLink">Ссылка на видео</label>
 				<input type="text" class="form-control" id="lk_videoLink" name='PROPERTY[<? echo $videoLinkPropertyId; ?>][0]' value="">
 			</div>
-		</div>
-
-		<div class="col-xs-12 lk_companylogobtn marginTop15px hide" id='videoFile'>
-			<?
-			/*
-			<input type="hidden" name="PROPERTY[<? echo $videoFilePropertyId; ?>][0]" value="" />
-			<input type="file" name="PROPERTY_FILE_<? echo $videoFilePropertyId;?>_0" />
-			<div class="btn btn-blue btnplus minbr">
-				<span class="plus text-center">+</span>Выбрать файл
-			</div>
-			*/
-			?>
-			<input type="hidden" name="PROPERTY[<? echo $videoFilePropertyId; ?>][0]" value="<? echo $previewPictureId; ?>" />
-			<input type="file" class='hide fileUpload' id='videoFileSelect' name="PROPERTY_FILE_<? echo $videoFilePropertyId;?>_0" />
-			<label for='videoFileSelect'>
-				<div class="btn btn-blue btnplus minbr">
-					<span class="plus text-center">+</span>Выбрать файл
-				</div>
-			</label>
-			<span id='videoFileSelectFileName'></span>
-		</div>
+		</div> 
 	</div>
 <?
 }
@@ -345,16 +321,7 @@ elseif (IBLOCK_ID_GALLERY_VIDEO === (int)$_REQUEST['iBlockId'])
 	</div>
 	</form>
 
-<script type="text/javascript">
-	$('#uploadVideo').on('click', function()
-	{
-		$('#videoLink').addClass('hide');
-		$('#videoFile').removeClass('hide');
-		$('#videoFile').toggleClass('active');
-
-		if ($('#videoLink').hasClass('active'))
-			$('#videoLink').removeClass('active');
-	});
+<script type="text/javascript"> 
 
 	$('#insertLink').on('click', function()
 	{

@@ -19,7 +19,7 @@ $arUser = $rsUser->Fetch();
 $leftSideAvatarFile = CFile::ResizeImageGet($arUser['PERSONAL_PHOTO'], array('width'=>80, 'height'=>80), BX_RESIZE_IMAGE_EXACT, true);
 ?>
 
-<div class="col-xs-3 content-margin" id="aside1">
+<div class="col-sm-3 col-xs-12 content-margin" id="aside1">
 		<div id="getFixed" class="lkmenuslide">
 			<div class=" content-margin">
 				<div class="block-default block-shadow lk_userinfo clearfix">
@@ -67,7 +67,7 @@ $leftSideAvatarFile = CFile::ResizeImageGet($arUser['PERSONAL_PHOTO'], array('wi
 		</div>
 </div>
 
-<div class="col-xs-9 content-margin">
+<div class="col-sm-9 col-xs-12 content-margin">
 <h1>Новости</h1>
 
 <div class='row'>

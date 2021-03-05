@@ -11,6 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+  
 
 $elemNum = $arParams["NEWS_COUNT"];
 if (isset($_POST['elemNum']) && !empty($_POST['elemNum']))

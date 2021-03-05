@@ -111,6 +111,19 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	),
+	)
 );
+
+if ( CSite::InGroup(array(9)) ) 
+	
+	{
+		$aMenuLinks[] =  Array(
+			"Редакционные статьи",
+			"/personal/company/lifeindustry/", 
+			Array(), 
+			Array(), 
+			"" 
+		);
+	}
+	
 ?>

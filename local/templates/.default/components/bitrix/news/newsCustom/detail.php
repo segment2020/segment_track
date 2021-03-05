@@ -191,16 +191,9 @@ if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID) {
 // pre($arResult);
 // pre($arParams);
 
-if (IBLOCK_ID_NOVETLY == $arParams['IBLOCK_ID'])
-{
-	$iBlockId = IBLOCK_ID_NEWS_COMPANY;
-	$detailPageFolder = '/news/companynews/';
-}
-else
-{
+ 
 	$iBlockId = $arParams['IBLOCK_ID'];
-	$detailPageFolder = $arResult['FOLDER'];
-}
+	$detailPageFolder = $arResult['FOLDER']; 
 ?>
 
 <?$APPLICATION->IncludeFile('/tpl/widgets/content/newsitems.php', array('iBlockId' => $iBlockId, 'detailPageFolder' => $detailPageFolder, 'company_id'=> $resID['PROPERTY_COMPANYID_VALUE'], 'curent_news_id' => $resID['ID']), array());?>

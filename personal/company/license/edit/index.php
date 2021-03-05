@@ -103,11 +103,11 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 	<form name="iblock_add" action="/editelement/" method="POST" enctype="multipart/form-data" class='addItemFromPersonalPage'>
 	<?=bitrix_sessid_post()?>
 
-	<div class="col-xs-9 content-margin" id="article">
+	<div class="col-sm-9 col-xs-12 content-margin" id="article">
 		<h1>Добавить лицензию</h1>
 		<div class="block-default in block-shadow content-margin ">
 			<div class="row">
-				<div class="col-xs-9">
+				<div class="col-sm-9 col-xs-12">
 					<div class="lk_companycatchek">
 					<?
 					$propertyEnums = CIBlockPropertyEnum::GetList(Array("DEF"=>"DESC", "SORT"=>"ASC"), array("IBLOCK_ID" => $arProps['paidOption']['IBLOCK_ID'], 'CODE' => $arProps['paidOption']['CODE']));
@@ -122,7 +122,7 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-3">
+				<div class="col-sm-3 col-xs-12">
 					<div class="lk_companycatchek">
 						<div class="mycheckbox">
 							Осталось: <? echo $arFields['PROPERTY_PAIDLICENSESNUM_VALUE']; ?>
@@ -134,13 +134,7 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 				//*********************************************************************************************************************************
 				$APPLICATION->IncludeFile('/tpl/include_area/defaultFields.php', array('titleName' => 'Название лицензии'), array());
 				//*********************************************************************************************************************************		
-?>
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label class="control-label mainlabel" for="lk_imgText">Текст на картинке</label>
-						<input type="text" class="form-control" id="lk_imgText" name='PROPERTY[<? echo $arProps['imgString']['ID']; ?>][0]' value="">
-					</div>
-				</div>
+?> 
 
 				<div class="col-xs-12">
 					<div class="form-group">

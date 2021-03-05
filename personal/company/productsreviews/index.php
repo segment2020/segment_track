@@ -2,12 +2,11 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Товарные обзоры");
 ?>
-<div class="container-fluid">
-	<div class="row">
+<div class="container-fluid">  
 
 <?
 if ($USER->IsAuthorized()) //Если пользователь авторизован 
-{ 
+{  
 	$rsUser = CUser::GetByID($USER->GetID()); //$USER->GetID() - получаем ID авторизованного пользователя и сразу же его поля 
 	$arUser = $rsUser->Fetch(); 
 	$arResult["PERSONAL_PHOTO_HTML"] = CFile::ShowImage($arUser["PERSONAL_PHOTO"], 80, 80, "border=0", "", true); //$arUser["PERSONAL_PHOTO"] - тут находится id аватарки, здесь мы получим HTML-код для вывода нужного изображения 
@@ -26,7 +25,7 @@ if (CModule::IncludeModule("iblock"))
 		$arFields = $ob->GetFields();
 }
 ?>
-<div class="col-xs-3 content-margin" id="article">
+<div class="col-sm-3 col-xs-12 col-xs-12 content-margin" id="article">
 		<div id="getFixed" class="lkmenuslide">
 			<div class=" content-margin">
 				<div class="block-default block-shadow lk_userinfo clearfix">
@@ -50,7 +49,7 @@ if (CModule::IncludeModule("iblock"))
 			</div>
 			<div class="content-margin">
 				<div class="list-group block-shadow lk_lmenu clearfix" id="collapselkmenu">
-					<?$APPLICATION->IncludeFile('/tpl/include_area/personalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
+					<?$APPLICATION->IncludeFile('/tpl/include_area/newPersonalPageMenu.php', array('companyId' => $arUser['UF_ID_COMPANY'], 'companyName' => $arFields['NAME']), array());?>
 				</div>
 			</div>
 		</div>
@@ -60,12 +59,12 @@ if (CModule::IncludeModule("iblock"))
 global $arrFilter;
 $arrFilter = array("ACTIVE" => array("Y", "N"), 'PROPERTY_companyId' => $arUser['UF_ID_COMPANY']);
 
-// Бренды.
+//  
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"companyStockEdit", 
+	"companyMaterialList", 
 	array(
-		"COMPONENT_TEMPLATE" => "companyStockEdit",
+		"COMPONENT_TEMPLATE" => "companyMaterialList",
 		"IBLOCK_TYPE" => "productsReview",
 		"IBLOCK_ID" => "15",
 		"NEWS_COUNT" => "10",
@@ -139,7 +138,6 @@ $APPLICATION->IncludeComponent(
 	false
 );
 ?>
-
-	</div>
+ 
 </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

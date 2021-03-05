@@ -10,8 +10,10 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(true);
+$this->setFrameMode(true); 
 CJSCore::Init(array("ajax"));
+
+console_log($arResult);
 ?>
 <script>
 	BX.ready(function(){

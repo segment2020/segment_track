@@ -21,6 +21,87 @@ $(document).ready(function () {
 	});
 
 
+	$(window).on('load', function () {
+ 
+		var cookie_name = "segment notify-cookie";
+
+		// получаем cookie если есть, иначе - undefined
+		function getCookie(name) {
+			let matches = document.cookie.match(new RegExp(
+				"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+			));
+			return matches ? decodeURIComponent(matches[1]) : undefined;
+		}
+
+		// уcтанавливаем cookie
+		function setCookie(name, value, props) {
+
+			props = props || {}
+
+			var exp = props.expires
+
+			if (typeof exp == "number" && exp) { 
+				var d = new Date() 
+				d.setTime(d.getTime() + exp * 1000) 
+				exp = props.expires = d 
+			}
+
+			if (exp && exp.toUTCString) { props.expires = exp.toUTCString() } 
+				value = encodeURIComponent(value)
+
+			var updatedCookie = name + "=" + value
+
+			for (var propName in props) { 
+				updatedCookie += "; " + propName 
+				var propValue = props[propName] 
+				if (propValue !== true) { updatedCookie += "=" + propValue }
+			}
+
+			document.cookie = updatedCookie
+
+		}
+
+		// удаляем cookie
+		function deleteCookie(name) { 
+			setCookie(name, 'visited', { expires: -1 }) 
+		}
+
+		if (getCookie(cookie_name) == undefined) { 
+			// первое посещение 
+			setTimeout(function () { 
+				$('.notify-cookie').fadeIn(); 
+			}, 1500); 
+			$('.notify-cookie .close-notify').on("click" , function () { 
+				setCookie(cookie_name, 'visited', { expires: 60*60*24*7, path: '/', });
+			});
+			console.log(getCookie(cookie_name));
+		}
+	});
+
+	var selectFilter = document.getElementsByClassName("selectpicker"); 
+	
+	for (var i = 0; i < selectFilter.length; i++) {
+		selectFilter[i].addEventListener('change', function() {
+			var selectIndex = this.selectedIndex;
+			var blockId = this.options[selectIndex].value;  
+ 
+			$.ajax({
+				type: 'POST',
+				dataType: 'html',
+				url: '/ajax/newAjax.php',
+				data: 'blockId=' + blockId,
+				success: function(request) {
+					document.getElementById('scrollBlock1').firstChild.firstChild.innerHTML = '';
+					document.getElementById('scrollBlock1').firstChild.firstChild.innerHTML = request;
+					document.getElementById('scrollBlock2').firstChild.firstChild.innerHTML = '';
+					document.getElementById('scrollBlock2').firstChild.firstChild.innerHTML = request;  
+				},
+				error: function(){
+					alert("ajax request Error");
+				}
+			});
+		});
+	}   
 	//	код до 24.09
 
 	$(document).on('change', '.vote_change', function () {
@@ -212,7 +293,7 @@ $(document).ready(function () {
 		$(".segmentscroll").mCustomScrollbar({
 			scrollbarPosition: "outside"
 		});
-	} 
+	}
 	$(window).resize(function () {
 
 		if (mainbxslider.length) {
@@ -782,24 +863,21 @@ $(document).ready(function () {
 	//----------------- Подстановка имени выбранного файла и превью выбранного изображения. ----------------
 	$("div.content-margin, div.lk_companylogobtn").on('change', 'input[type=file].fileUpload', setFileName);
 
-	function setFileName() {
-		// console.log($(this).closest('.lk_companylogoblock').html());
-		var thisinput = $(this);
+	function setFileName() { 
+
+		var thisinput = $(this); 
 		var id = $(this).attr('id');
 		var fileName = $(this).val().replace(/.*\\/, "");
 		var elem = $("#" + id + "FileName");
 		var input = this;
 
 		$("#" + id + "FileName").text(fileName);
-		// console.log(id);
-		// console.log(fileName);
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
 
-			reader.onload = function (e) {
-				//$(this).closest('.lk_companylogoblock').find('img').attr('src', e.target.result);
-				thisinput.closest('.lk_companylogoblock').find('img').attr('src', e.target.result);
-
+			reader.onload = function (e) { 
+				thisinput.closest('.lk_companylogoblock').find('img').attr('src', e.target.result);  
+				thisinput.closest('.block-without-img').removeClass( 'block-without-img' ).addClass( 'block-with-img' );
 			};
 
 			reader.readAsDataURL(input.files[0]);
@@ -941,7 +1019,8 @@ $(document).ready(function () {
 
 	//-----------------------------------------------------------------------------------
 	// Проверка на пустые поля элемента(публикации).
-	var btn = document.getElementById('addElement');
+	var btn = document.getElementById('addElement'); 
+	
 	if (!!btn) {
 		btn.addEventListener('click', function (event) {
 			var error = false;
@@ -1069,7 +1148,11 @@ $(document).ready(function () {
 				else
 					document.getElementById('errorExt').classList.add('hide');
 			}
-
+			 
+			if (error) {
+				document.getElementById('errorText').classList.remove('hide');
+				event.preventDefault();
+			}
 			if (error) {
 				document.getElementById('errorText').classList.remove('hide');
 				event.preventDefault();

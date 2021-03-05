@@ -165,8 +165,7 @@ elseif (IBLOCK_ID_NEWS_INDUSTRY == $arResult['IBLOCK_ID'])
 			<a class="link" href="<? echo $source; ?>" target="_blank" rel="noopener noreferrer">
 				<? echo $domainSource ?>
 			</a> 
-		</div>
-		<br>
+		</div> 
 	</noindex> 
 <?	
 	}

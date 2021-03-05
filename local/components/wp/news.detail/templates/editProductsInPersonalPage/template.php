@@ -20,7 +20,7 @@ if (!CModule::includeModule("iblock") || !CModule::includeModule('fileman')) {
 <form name="iblock_add" action="/editelement/?edit=Y&CODE=<? echo $arResult['ID']; ?>" method="POST" enctype="multipart/form-data" class='addItemFromPersonalPage' id='newProduct'>
 	<?=bitrix_sessid_post()?>
 
-<div class="col-xs-9 content-margin" id="article">
+<div class="col-sm-9 col-xs-12 content-margin" id="article">
 <?
 
 if (isset($_GET['errorStr']) && !empty($_GET['errorStr'])) {
@@ -200,23 +200,7 @@ while ($arSection = $resSection->GetNext())
 <?					} ?>
 				</select>
 			</div>
-		</div>
-
-<?
-		$checked = '';
-		if ('Y' == $arResult['PROPERTIES']['hit']['VALUE'])
-			$checked = 'checked';
-?>
-		<div class="col-xs-12">
-			<div class="lk_companycatchek">
-			<?
-				$propertyEnums = CIBlockPropertyEnum::GetList(Array("DEF"=>"DESC", "SORT"=>"ASC"), array("IBLOCK_ID" => $arResult['PROPERTIES']['hit']['IBLOCK_ID'], 'CODE' => $arResult['PROPERTIES']['hit']['CODE']));
-				if ($enumFields = $propertyEnums->GetNext())
-					$propId = $enumFields['ID'];
-			?>
-				<div class="mycheckbox"><label><input name="<? echo 'PROPERTY[' . $arResult['PROPERTIES']['hit']['ID'] . ']'; ?>" type="checkbox" <? echo $checked; ?> value="<? echo $propId; ?>">Хит</label></div>
-			</div>
-		</div>
+		</div> 
 
 		<?
 		$res = CPrice::GetList(array(), array("PRODUCT_ID" => $arResult['ID'], "CATALOG_GROUP_ID" => 1));

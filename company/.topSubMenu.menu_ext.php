@@ -1,29 +1,36 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"ТОП 100", 
-		"/top100/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"База компаний", 
+		"Компании", 
 		"/company/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Список неплательщиков", 
-		"/defaulters/", 
+		"Бренды", 
+		"/brands/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Лицензии", 
+		"/license/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Канцтовары", 
+		"/hits/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	/*
 	Array(
-		"Список пользователей", 
+		"Пользователи", 
 		"/users/", 
 		Array(), 
 		Array(), 

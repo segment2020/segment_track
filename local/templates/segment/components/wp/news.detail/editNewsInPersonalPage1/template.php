@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 <form name="iblock_add" action="/editelement/?edit=Y&CODE=<? echo $arResult['ID']; ?>" method="POST" enctype="multipart/form-data">
 	<?=bitrix_sessid_post()?>
 
-	<div class="col-xs-9 content-margin" id="article">
+	<div class="col-sm-9 col-xs-12 content-margin" id="article">
 <?
 if (isset($_GET['errorStr']) && !empty($_GET['errorStr']))
 {
@@ -71,46 +71,19 @@ $APPLICATION->IncludeFile('/tpl/include_area/dateActiveFrom.php', array('dateAct
 					<label class="control-label mainlabel" for="lk_photoSource">Источник фото</label>
 					<input type="text" class="form-control" id="lk_photoSource" name='PROPERTY[<? echo $arResult['PROPERTIES']['imgSource']['ID']; ?>][0]' value="<? echo $arResult['PROPERTIES']['imgSource']['VALUE']; ?>">
 				</div>
-			</div>
-
-			<div class="col-xs-12">
-				<div class="form-group">
-					<label class="control-label mainlabel" for="lk_imgText">Текст на картинке</label>
-					<input type="text" class="form-control" id="lk_imgText" name='PROPERTY[<? echo $arResult['PROPERTIES']['imgString']['ID']; ?>][0]' value="<? echo $arResult['PROPERTIES']['imgString']['VALUE']; ?>">
-				</div>
-			</div>
-
-			<div class="col-xs-12">
-				<div class="lk_companycatchek">
-					<div class="mycheckbox">
-					<?
-					$propertyEnums = CIBlockPropertyEnum::GetList(Array("DEF" => "DESC", "SORT" => "ASC"), array("IBLOCK_ID" => $arResult['IBLOCK_ID'], 'CODE' => $arResult['PROPERTIES']['showLogo']['CODE']));
-					if ($enumFields = $propertyEnums->GetNext())
-						$propId = $enumFields['ID'];
-
-					$checked = '';
-					if (!empty($arResult['PROPERTIES']['showLogo']['VALUE']))
-						$checked = 'checked';
-					?>
-						<label>
-							<input type="checkbox" class="" <? echo $checked; ?> name='PROPERTY[<? echo $arResult['PROPERTIES']['showLogo']['ID']; ?>]' value="<? echo $propId; ?>">
-							Показывать логотип компании на главной
-						</label>
-					</div>
-				</div>
-			</div>
+			</div>  
 
 <?
 //*********************************************************************************************************************************
-$APPLICATION->IncludeFile('/tpl/include_area/addPicture.php',
-							array('previewPictureSrc' => $arResult["PREVIEW_PICTURE"]["SRC"],
-									'previewPictureId' => $arResult["PREVIEW_PICTURE"]["ID"],
-									'detailPictureSrc' => $arResult["DETAIL_PICTURE"]["SRC"],
-									'detailPictureId' => $arResult["DETAIL_PICTURE"]["ID"]),
-							array());
+// $APPLICATION->IncludeFile('/tpl/include_area/addPicture.php',
+// 							array('previewPictureSrc' => $arResult["PREVIEW_PICTURE"]["SRC"],
+// 									'previewPictureId' => $arResult["PREVIEW_PICTURE"]["ID"],
+// 									'detailPictureSrc' => $arResult["DETAIL_PICTURE"]["SRC"],
+// 									'detailPictureId' => $arResult["DETAIL_PICTURE"]["ID"]),
+// 							array());
 //*********************************************************************************************************************************
 
-$APPLICATION->IncludeFile('/tpl/include_area/tags.php', array('value' => $arResult['TAGS'], 'text' => 'size="'.$arResult["PROPERTY_LIST_FULL"]["TAGS"]["COL_COUNT"].'"'), array());
+// $APPLICATION->IncludeFile('/tpl/include_area/tags.php', array('value' => $arResult['TAGS'], 'text' => 'size="'.$arResult["PROPERTY_LIST_FULL"]["TAGS"]["COL_COUNT"].'"'), array());
 
 /*
 ?>
@@ -133,7 +106,7 @@ $APPLICATION->IncludeFile('/tpl/include_area/tags.php', array('value' => $arResu
 					</div>
 				</div>
 
-				<input type="text" class="newTags" id="newTag" value="">
+				<input type="text" class="newTags" id="newTag" value=""> // Этот инпут пригодится
 				<div class="btn btn-blue btnplus minbr addTag" id='addNewTag'>
 					<span class="plus text-center">+</span>Добавить таг
 				</div>

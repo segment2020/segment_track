@@ -2,14 +2,14 @@
 $aMenuLinks = Array(
 	Array(
 		"Фотогалерея",
-		"/photovideo/photogallery/",
+		"/photogallery/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Видеогалерея",
-		"/photovideo/videogallery/",
+		"/videogallery/",
 		Array(),
 		Array(),
 		""

@@ -44,8 +44,9 @@ $APPLICATION->SetTitle("Мнения");
 			0 => "companyId",
 			1 => "name",
 			2 => "source",
-			3 => "addmore",
-			4 => "",
+			3 => "imgSource",
+			4 => "addmore",
+			5 => "",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -117,6 +118,8 @@ $APPLICATION->SetTitle("Мнения");
 			0 => "",
 			1 => "",
 		),
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
@@ -127,7 +130,7 @@ $APPLICATION->SetTitle("Мнения");
 );
 			?>
 
-		</div> <!-- end div class="col-xs-9 content-margin"> -->
+		</div> <!-- end div class="col-sm-9 col-xs-12 content-margin"> -->
 	</div>
 </div>
  <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

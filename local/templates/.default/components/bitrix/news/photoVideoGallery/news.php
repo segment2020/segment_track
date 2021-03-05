@@ -12,6 +12,9 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
+// Костыль - раздел почему-то не отображается в цепочке хлебных крошек
+$APPLICATION->AddChainItem($APPLICATION->sDocTitle, "");
+
 $elemNum = $arParams["NEWS_COUNT"];
 if (isset($_POST['elemNum']) && !empty($_POST['elemNum']))
 {

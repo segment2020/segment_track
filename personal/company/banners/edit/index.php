@@ -94,7 +94,7 @@ elseif (isset($_GET['iBlockId']) && !empty($_GET['iBlockId']))
 	<form name="iblock_add" action="/editelement/" method="POST" enctype="multipart/form-data" class='addItemFromPersonalPage'>
 	<?=bitrix_sessid_post()?>
 
-	<div class="col-xs-9 content-margin" id="article">
+	<div class="col-sm-9 col-xs-12 content-margin" id="article">
 		<h1>Добавить баннер</h1>
 		<? if (isset($_GET['errorStr']) && !empty($_GET['errorStr'])) { ?>
 				<div class="block-default in block-shadow content-margin">

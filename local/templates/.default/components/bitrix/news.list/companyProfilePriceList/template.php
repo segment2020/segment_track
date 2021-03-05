@@ -74,7 +74,7 @@ $this->setFrameMode(true);
 		<input type="submit" name="iblock_submit" value="<?=GetMessage("IBLOCK_FORM_SUBMIT")?>" id='addPriceList' class="btn btn-blue-full minbr" />
 		</form>
 	</div>
-</div> <!-- end div class="col-xs-9 content-margin" id="article"> -->
+</div> <!-- end div class="col-sm-9 col-xs-12 content-margin" id="article"> -->
 
 
 

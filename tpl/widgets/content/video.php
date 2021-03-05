@@ -26,7 +26,7 @@
 			1 => "companyId",
 		),
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "/photovideo/videogallery/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/videogallery/#ELEMENT_CODE#/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",

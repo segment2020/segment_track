@@ -9,7 +9,7 @@ if (!empty($arResult)) {
 ?>
 		<a href="<? echo $link; ?>" class="list-group-item <?if ($arItem["SELECTED"]):?> item-selected<?endif?>"><? echo $arItem["TEXT"]; ?></a>
 <?	}
-}
+} 
 ?>
 
 

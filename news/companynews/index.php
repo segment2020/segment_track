@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Новости компаний");
 			<div class="col-sm-3 col-xs-12 order-xs-1">
 				<div class="row">
 				<?
-				if (CSite::InDir('/news/companynews/index.php'))
+				if (CSite::InDir('/companynews/index.php'))
 					$APPLICATION->IncludeFile('/tpl/include_area/bannersContent.php', array('includeArea' => array('actualtoday', 'defaulters', 'komments', 'photogallery')), array());
 				else
 					$APPLICATION->IncludeFile('/tpl/include_area/bannersContent.php', array('includeArea' => array('actualtoday', 'defaulters', 'komments', 'top100')), array());
@@ -109,7 +109,7 @@ $APPLICATION->IncludeComponent(
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "newsCustom",
-		"SEF_FOLDER" => "/news/companynews/",
+		"SEF_FOLDER" => "/companynews/",
 		"MESSAGES_PER_PAGE" => "3",
 		"USE_CAPTCHA" => "Y",
 		"REVIEW_AJAX_POST" => "Y",

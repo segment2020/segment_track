@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Список сотрудников");
 
 <?$APPLICATION->IncludeFile('/tpl/include_area/personalPageLeftSide.php', array(), array());?>
 
-<div class="col-xs-9 content-margin">
+<div class="col-sm-9 col-xs-12 content-margin">
 	<? if (!empty($_GET['message'])) { ?>
 		<div class="block-default in block-shadow content-margin ">
 		<div class="row">

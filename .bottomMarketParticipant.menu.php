@@ -1,26 +1,12 @@
 <?
-$aMenuLinks = Array(
+$aMenuLinks = Array( 
 	Array(
-		"ТОП 100 компаний",
-		"/top100/",
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"База компаний",
-		"/company/",
+		"Блоги",
+		"/viewpoint/",
 		Array(),
 		Array(),
 		""
-	),
-	Array(
-		"Список неплательщиков",
-		"/defaulters/",
-		Array(),
-		Array(),
-		""
-	),
+	) 
 	/*
 	Array(
 		"Список пользователей",

@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Хиты");
 
 <?$APPLICATION->IncludeFile('/tpl/include_area/personalPageLeftSide.php', array(), array());?>
 
-<div class="col-xs-9 content-margin">
+<div class="col-sm-9 col-xs-12 content-margin">
 	<h1>Хиты</h1>
 
 <?
@@ -89,7 +89,7 @@ if ($USER->IsAuthorized()) //Если пользователь авторизо�
 }
 ?>
 
-		</div> <!-- end div class="col-xs-9 content-margin"> -->
+		</div> <!-- end div class="col-sm-9 col-xs-12 content-margin"> -->
 	</div> <!-- end div class="row"> -->
 </div>
 

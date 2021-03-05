@@ -2,24 +2,32 @@
 $aMenuLinks = Array(
 	Array(
 		"Новости компаний",
-		"/news/companynews/",
+		"/companynews/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Новости отрасли",
-		"/news/industrynews/",
+		"/industrynews/",
 		Array(),
 		Array(),
 		""
 	),
 	Array(
-		"События",
-		"/events/",
+		"Новинки",
+		"/productnews/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Акции",
+		"/stock/",
 		Array(),
 		Array(),
 		""
 	)
+	
 );
 ?>

@@ -150,9 +150,9 @@ $companyName = '';
 if ('1' == $arParams['COMPANY_FILTER'] && isset($arResult['ITEMS'][0]['DISPLAY_PROPERTIES']['companyId']['DISPLAY_VALUE']) && !empty($arResult['ITEMS'][0]['DISPLAY_PROPERTIES']['companyId']['DISPLAY_VALUE']))
 	$companyName = ' компании ' . $arResult['ITEMS'][0]['DISPLAY_PROPERTIES']['companyId']['DISPLAY_VALUE'];
 ?>
-
+ 
 <div class="col-sm-9 col-xs-12 content-margin">
-			<h1>Хиты<? echo $companyName; ?></h1>
+<h1><? echo $APPLICATION->sDocTitle; ?></h1>
 
 <?
 if ($showTopPager)

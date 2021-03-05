@@ -26,6 +26,8 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 
 	$iBlockId = $_POST['iBlockId'];
 	$iBlockType = $_POST['iBlockType'];
+	if (isset($_POST["PROPERTY"]["MODERATION"]))
+		$nextPage = "/personal/moderation/"; 
 
 	switch ($iBlockId)
 	{
@@ -38,6 +40,8 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$showCompanyLogo   = PROPERTY_ID_SHOW_LOGO_IN_NEWS_COMPANY;
 			$markedPropId      = PROPERTY_ID_MARKED_IN_NEWS_COMPANY;
 			$markedToPropId    = PROPERTY_ID_MARKED_TO_IN_NEWS_COMPANY;
+			$moveToPropertyId  = PROPERTY_ID_MOVE_TO_IN_NEWS_COMPANY;
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_NEWS_COMPANY;
 			break;
 		}
 
@@ -50,6 +54,8 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$showCompanyLogo   = PROPERTY_ID_SHOW_LOGO_IN_NEWS_INDUSTRY;
 			$markedPropId      = PROPERTY_ID_MARKED_IN_NEWS_INDUSTRY;
 			$markedToPropId    = PROPERTY_ID_MARKED_TO_IN_NEWS_INDUSTRY;
+			$moveToPropertyId   = PROPERTY_ID_MOVE_TO_IN_NEWS_INDUSTRY;
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_NEWS_INDUSTRY;
 			break;
 		}
 
@@ -60,6 +66,8 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$addMaterialPropId = PROPERTY_ID_ADD_MATERIAL_IN_STOCK;
 			$markedPropId      = PROPERTY_ID_MARKED_IN_NEWS_STOCK;
 			$markedToPropId    = PROPERTY_ID_MARKED_TO_IN_NEWS_STOCK;
+			$moveToPropertyId   = PROPERTY_ID_MOVE_TO_IN_STOCK;
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_STOCK;
 			break;
 		}
 
@@ -79,6 +87,7 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$countryPropId    = PROPERTY_ID_COUNTRY_IN_BRANDS;
 			$payModePropId    = PROPERTY_ID_PAY_MODE_IN_BRANDS;
 			$typePropId       = PROPERTY_ID_TYPE_IN_BRANDS;
+			$moveToPropertyId   = PROPERTY_ID_MOVE_TO_IN_BRANDS;
 			break;
 		}
 
@@ -106,6 +115,8 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$addElementIdPropId = PROPERTY_ID_ADD_ELEMENTID_IN_VIEWPOINT;
 			$addMaterialPropId  = PROPERTY_ID_ADD_MATERIAL_IN_VIEWPOINT;
 			$photoSrcPropId = PROPERTY_ID_PHOTO_SRC_IN_VIEWPOINT;
+			$moveToPropertyId   = PROPERTY_ID_MOVE_TO_IN_VIEWPOINT;
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_VIEWPOINT;
 			break;
 		}
 
@@ -133,12 +144,14 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 		}
 
 		case IBLOCK_ID_PRODUCTS_REVIEW:
-		{
+		{ 
 			$archiveSvnPropId = PROPERTY_ID_ARCHIVE_IN_PRODUCTS_REVIEW;
 			$textOnImgPropId  = PROPERTY_ID_TEXT_IMG_SRC_IN_PRODUCTS_REVIEW;
 			$newsSrcPropId    = PROPERTY_ID_NEWS_SRC_IN_PRODUCTS_REVIEW;
 			$showCompanyLogo  = PROPERTY_ID_SHOW_LOGO_IN_PRODUCTS_REVIEW;
 			$addMaterialPropId  = PROPERTY_ID_ADD_MATERIAL_IN_PRODUCTS_REVIEW;
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_PRODUCTS_REVIEW;
+			$moveToPropertyId 			= PROPERTY_ID_JSON_DATA_IN_PRODUCTS_REVIEW;
 			break;
 		}
 
@@ -159,7 +172,7 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			break;
 		}
 
-		case IBLOCK_ID_NOVETLY:
+		case IBLOCK_ID_NOVETLY: 
 		{
 			$newsSrcPropId     = PROPERTY_ID_NEWS_SRC_IN_NOVETLY;
 			$photoSrcPropId    = PROPERTY_ID_PHOTO_SRC_IN_NOVETLY;
@@ -168,6 +181,7 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$showCompanyLogo   = PROPERTY_ID_SHOW_LOGO_IN_NOVETLY;
 			$markedPropId      = PROPERTY_ID_MARKED_IN_NEWS_NOVETLY;
 			$markedToPropId    = PROPERTY_ID_MARKED_TO_IN_NEWS_NOVETLY;
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_NOVETLY;
 			break;
 		}
 
@@ -191,6 +205,12 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$countryPropId     = PROPERTY_ID_COUNTRY_IN_CATALOGS_PDF;
 			break;
 		}
+		case IBLOCK_ID_LIFE_INDUSTRY:
+		{  
+			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_LIFE_INDUSTRY;
+			$moveToPropertyId   = PROPERTY_ID_MOVE_TO_IN_LIFE_INDUSTRY;
+			break;
+		}
 	}
 }
 // else
@@ -203,7 +223,7 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 
 $APPLICATION->IncludeComponent(
 	"wp:iblock.element.add.form", 
-	"editElement", 
+	"editElement",  
 	array(
 		"CUSTOM_TITLE_DATE_ACTIVE_FROM" => "",
 		"CUSTOM_TITLE_DATE_ACTIVE_TO" => "",
@@ -226,8 +246,8 @@ $APPLICATION->IncludeComponent(
 		),
 		"IBLOCK_ID" => $iBlockId,
 		"IBLOCK_TYPE" => $iBlockType,
-		"LEVEL_LAST" => "Y",
-		"LIST_URL" => "",
+		"LEVEL_LAST" => "N",
+		"LIST_URL" => $nextPage,
 		"MAX_FILE_SIZE" => "0",
 		"MAX_LEVELS" => "100000",
 		"MAX_USER_ENTRIES" => "100000",
@@ -240,8 +260,8 @@ $APPLICATION->IncludeComponent(
 			4 => "DETAIL_TEXT",
 			5 => "DETAIL_PICTURE",
 			6 => "DATE_ACTIVE_FROM",
-			7 => 'ACTIVE',
-			8 => 'PREVIEW_TEXT_TYPE',
+			7 => "ACTIVE", 
+			8 => "PREVIEW_TEXT_TYPE",
 			9 => $newsSrcPropId,
 			10 => $photoSrcPropId,
 			11 => $countryPropId,
@@ -262,7 +282,7 @@ $APPLICATION->IncludeComponent(
 			26 => $twitterkLinkPropId,
 			27 => $facebookLinkPropId,
 			28 => $textOnImgPropId,
-			29 => 'DETAIL_TEXT_TYPE',
+			29 => "DETAIL_TEXT_TYPE",
 			30 => $payModePropId,
 			31 => $typePropId,
 			32 => $archiveSvnPropId,
@@ -278,7 +298,7 @@ $APPLICATION->IncludeComponent(
 			42 => $brand,
 			43 => $endTime,
 			44 => $price,
-			45 => 'IBLOCK_SECTION',
+			45 => "IBLOCK_SECTION",
 			46 => $displayAreaPropId,
 			47 => $linkPropId,
 			48 => $typePropId,
@@ -289,6 +309,8 @@ $APPLICATION->IncludeComponent(
 			53 => $markedToPropId,
 			54 => $flashFilePropId,
 			55 => $displayAreaOtherPagePropId,
+			56 => $displayJsonDataId, 
+			57 => $moveToPropertyId, 
 		),
 		"PROPERTY_CODES_REQUIRED" => array(
 			0 => "NAME",

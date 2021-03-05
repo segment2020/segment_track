@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Акции");
 	<div class="row">
 		<?$APPLICATION->IncludeFile('/tpl/include_area/personalPageLeftSide.php', array(), array());?>
 
-<?
+<? 
 	global $arrFilter;
 	$rsUser = CUser::GetByID($USER->GetID()); //$USER->GetID() - получаем ID авторизованного пользователя и сразу же его поля 
 	$arUser = $rsUser->Fetch();
@@ -15,9 +15,9 @@ $APPLICATION->SetTitle("Акции");
 	// Акции.
 	$APPLICATION->IncludeComponent(
 		"bitrix:news.list", 
-		"companyStockEdit", 
+		"companyMaterialList", 
 		array(
-			"COMPONENT_TEMPLATE" => "companyStockEdit",
+			"COMPONENT_TEMPLATE" => "companyMaterialList",
 			"IBLOCK_TYPE" => "Stock",
 			"IBLOCK_ID" => "4",
 			"NEWS_COUNT" => "10",

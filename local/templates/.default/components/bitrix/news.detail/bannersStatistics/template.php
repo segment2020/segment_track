@@ -15,7 +15,7 @@ $this->setFrameMode(true);
 
 <?
 	if ($arResult['PROPERTIES']['companyId']['VALUE'] != $arParams['COMPANY_ID']) { ?>
-		<div class="col-xs-9 content-margin">
+		<div class="col-sm-9 col-xs-12 content-margin">
 			<div class="block-default in block-shadow content-margin detailblock">
 				Элемент не найден.
 				<a href='/personal/company/banners/' style='color: #509bc3;'>Вернуться</a>
@@ -143,7 +143,7 @@ $this->setFrameMode(true);
 	// pre($arResult);
 ?>
 
-<div class="col-xs-9 content-margin">
+<div class="col-sm-9 col-xs-12 content-margin">
 	<div class="block-default in block-shadow content-margin detailblock">
 		<div class="opiniontitleblock clearfix eventdate upcomingevents">
 			<div class="opiniontitledescr">

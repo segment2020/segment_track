@@ -19,6 +19,8 @@ $this->setFrameMode(true);
  //pre($arResult);
 
  $counter = 0;
+ $countArResultItems = count($arResult["ITEMS"]);
+  
 $monthsName = array('01' => 'январь',
     '02' => 'февраль',
     '03' => 'март',
@@ -106,23 +108,21 @@ foreach($arResult["ITEMS"] as $arItem)
 		</div>
 <?	}
 
-	++$counter;
+	++$counter; 
 }?>
 
 <?
-	if (0 !== ($itemsNumber % 2))
-	{
+	if (0 !== ($counter % 2) && $counter === $countArResultItems)
+	{ 
 ?>
-		</div> <!-- end div class="row"> -->
+		</div> <!-- fix div class="row"> -->
 <?	}
 ?>
 
 <div class="text-center buttonblock">
     <a class="btn btn-blue" href="<? echo $arResult["SECTION_PAGE_URL"]; ?>">Все события<i class="icon-icons_main-10"></i></a>
 </div>
-
-
-
+ 
 <?
 /*
 <div class="news-list">

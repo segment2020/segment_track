@@ -331,7 +331,7 @@ $APPLICATION->SetTitle("Реклама на портале");
 			<div class="row">
 			</div>
 		</div>
-		<div class="col-xs-9 content-margin">
+		<div class="col-sm-9 col-xs-12 content-margin">
 		</div>
 	</div>
 </div>
