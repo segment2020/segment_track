@@ -11,7 +11,7 @@ if(empty($arResult))
 	return "";
 
 $strReturn = '';
-
+ 
 $itemSize = count($arResult);
 for ($index = 0; $index < $itemSize; ++$index)
 {

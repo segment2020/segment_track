@@ -136,7 +136,7 @@ if ($resID['ID'] && $resID['IBLOCK_ID']) {
 		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
 		<?foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
 			<?$APPLICATION->IncludeComponent(
-				"bitrix:news.list",
+				"bitrix:news.list", 
 				$arParams["CATEGORY_THEME_".$iblock_id],
 				Array(
 					"IBLOCK_ID" => $iblock_id,

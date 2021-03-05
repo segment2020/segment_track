@@ -14,7 +14,7 @@ $APPLICATION->SetTitle("Фотогалерея");
 $APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"photoVideoGallery", 
-	array(
+	array( 
 		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",

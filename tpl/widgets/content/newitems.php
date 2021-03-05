@@ -75,5 +75,5 @@ $APPLICATION->IncludeComponent("bitrix:news.list", "newListInDetail", Array(
 		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
 	),
 	false
-);
+); 
 ?>
