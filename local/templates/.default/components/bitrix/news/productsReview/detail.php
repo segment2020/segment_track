@@ -239,7 +239,7 @@ for ($i = 0; $i < $count; ++$i)
 ?>
 
 
-<?$APPLICATION->IncludeFile('/tpl/widgets/content/newsitems.php', array('fixid'=>2, 'fixurl' => '/news/companynews/', 'company_id'=> $resID['PROPERTY_COMPANYID_VALUE']), array());?>
+<?$APPLICATION->IncludeFile('/tpl/widgets/content/newsitems.php', array('fixid'=>2, 'fixurl' => '/companynews/', 'company_id'=> $resID['PROPERTY_COMPANYID_VALUE']), array());?>
 <?$APPLICATION->IncludeFile('/tpl/widgets/content/photo.php', array('company_id'=> $resID['PROPERTY_COMPANYID_VALUE']), array());?>
 <?$APPLICATION->IncludeFile('/tpl/widgets/content/newitems.php', array('company_id'=> $resID['PROPERTY_COMPANYID_VALUE']), array());?>
 <?$APPLICATION->IncludeFile('/tpl/widgets/content/productsreviews.php', array('company_id'=> $resID['PROPERTY_COMPANYID_VALUE']), array());?>

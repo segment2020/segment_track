@@ -23,7 +23,7 @@
 				$message = '<a href="' . $tmp[0] . '">Изображение</a>';
 			}
 			*/
-			$login = ($ar_res["LOGIN"] != "")? $ar_res["LOGIN"]: $ar_res["AUTHOR_NAME"]; ?>
+			$login = $ar_res["NAME"]; ?>
 				<div class="newsbitem clearfix">
 					<div class="commenttitlelink">
 						<a href="<? echo $arElem["DETAIL_PAGE_URL"]; ?>">
@@ -47,9 +47,9 @@
 		}
 	} 
 ?>
-		<div class="text-center buttonblock">
+		<!-- <div class="text-center buttonblock">
 			<a class="btn btn-blue" href="/forum/?PAGE_NAME=forums&GID=5">Все комментарии<i class="icon-icons_main-10"></i></a>
-		</div>
+		</div> -->
 	</div>					
 </div>
 <br>

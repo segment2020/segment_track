@@ -6,12 +6,13 @@ $APPLICATION->SetTitle("Редактировать товарный обзор")
 <div class="container-fluid">
 	<div class="row"> 
 		<?
-		$APPLICATION->IncludeFile('/tpl/include_area/personalPageLeftSide.php', array(), array()); 
+		$APPLICATION->IncludeFile('/tpl/include_area/personalPageLeftSide.php', array(), array());  
 
 		if (isset($_REQUEST['elementId']) && !empty($_REQUEST['elementId']))
 		{ 
 			$APPLICATION->IncludeFile('/tpl/include_area/newEditElement.php', Array( 
 				"iBlockId" => IBLOCK_ID_PRODUCTS_REVIEW,  
+				"jsonDataId" => PROPERTY_ID_JSON_DATA_IN_PRODUCTS_REVIEW,
 				"iBlockType" => "productsReview",
 				"elementCode" => "#SITE_DIR#/personal/productsreviews/edit/#ELEMENT_CODE#/",	// Код новости
 			 ));  

@@ -72,7 +72,7 @@ $msgCounter = isset($arResult['PROPERTIES']['FORUM_MESSAGE_CNT']['VALUE'])? $arR
 		{
 			
 			?>
-			<a href="/news/industrynews/?arrFilter_ff%5BTAGS%5D=<? echo $tag; ?>&set_filter=Фильтр&set_filter=Y"><? echo $tag; ?></a>
+			<a href="/industrynews/?arrFilter_ff%5BTAGS%5D=<? echo $tag; ?>&set_filter=Фильтр&set_filter=Y"><? echo $tag; ?></a>
 	<?	}
 	?>
 	</div>

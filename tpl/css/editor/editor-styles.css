@@ -258,7 +258,9 @@
   color: red;
   font-size: 20px;
 }
-
+.post_image {
+  margin: 0 0 10px;
+}
 .post_image--stretched img {
   width: 100%;
 }
@@ -323,4 +325,9 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.post_image img {
+  max-width: 100%;
+  height: auto;
 }

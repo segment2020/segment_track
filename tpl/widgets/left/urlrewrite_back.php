@@ -52,7 +52,7 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/industrynews/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
-		"PATH" => "/news/industrynews/index.php",
+		"PATH" => "/industrynews/index.php",
 	),
 	array(
 		"CONDITION" => "#^/photogallery/#",
@@ -70,7 +70,7 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/companynews/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
-		"PATH" => "/news/companynews/index.php",
+		"PATH" => "/companynews/index.php",
 	),
 	array(
 		"CONDITION" => "#^/defaulters/#",

@@ -1,7 +1,7 @@
 <?
 use Bitrix\Main\Page\Asset;  
 console_log("iBlockType: ".$iBlockType." - iBlockId: ".$iBlockId." - jsonDataId: ".$jsonDataId." - elementCode: ".$elementCode);
-
+  
 $APPLICATION->IncludeComponent(
 	"wp:news.detail", 
 	"editMaterialInPersonalPage", 

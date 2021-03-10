@@ -3,7 +3,7 @@
 	<div class="lk_inTop" style="margin-top: 0;margin-bottom: 0;">
 		<div class="mycheckbox"> 
 			<label>
-				<a href="/news/companynews/pravila_razmescheniya_nekommercheskoy_informatsii_v_rubrike_novosti_kompaniy/" target="_blank" style=" text-decoration: underline; position: relative; left: -20px;">Правила размещения некоммерческой информации в рубрике «Новости компаний»</a> 
+				<a href="/companynews/pravila_razmescheniya_nekommercheskoy_informatsii_v_rubrike_novosti_kompaniy/" target="_blank" style=" text-decoration: underline; position: relative; left: -20px;">Правила размещения некоммерческой информации в рубрике «Новости компаний»</a> 
 			</label>
 		</div>
 	</div>

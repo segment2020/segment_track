@@ -32,7 +32,7 @@ $this->setFrameMode(true);
 			<div class='col-xs-12 btn btn-blue-full minbr'>
 				<span class="plus">+</span>
 				<?=GetMessage("ADD_ELEMENT")?>
-			</div>
+			</div> 
 		</a>
 	</div>
 </div>

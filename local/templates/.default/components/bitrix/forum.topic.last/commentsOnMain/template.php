@@ -44,6 +44,7 @@ foreach ($arResult["TOPIC"] as $res)
 				else:
 					?><?=$res["USER_START_NAME"]?><?
 				endif;
+				console_log($res);
 			?>
 		</div>
 	</div>

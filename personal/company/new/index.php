@@ -64,7 +64,7 @@ $arrFilter = array("ACTIVE" => array("Y", "N"), 'PROPERTY_companyId' => $arUser[
 // Новинки компании.
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",  
-	"companyMaterialList", 
+	"companyMaterialList",  
 	array(
 		"COMPONENT_TEMPLATE" => "companyMaterialList",
 		"IBLOCK_TYPE" => "-",

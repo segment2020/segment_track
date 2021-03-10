@@ -151,7 +151,7 @@ if ( (isset($_POST['iBlockId']) && !empty($_POST['iBlockId'])) && (isset($_POST[
 			$showCompanyLogo  = PROPERTY_ID_SHOW_LOGO_IN_PRODUCTS_REVIEW;
 			$addMaterialPropId  = PROPERTY_ID_ADD_MATERIAL_IN_PRODUCTS_REVIEW;
 			$displayJsonDataId = PROPERTY_ID_JSON_DATA_IN_PRODUCTS_REVIEW;
-			$moveToPropertyId 			= PROPERTY_ID_JSON_DATA_IN_PRODUCTS_REVIEW;
+			$moveToPropertyId = PROPERTY_ID_JSON_DATA_IN_PRODUCTS_REVIEW;
 			break;
 		}
 

@@ -232,7 +232,7 @@
     display: flex;
     margin: 0 -5px;
 }
-div.detailcontent p img {
+div.detailcontent img {
     max-width: 100%;
     height: auto;
 }
@@ -259,7 +259,8 @@ div.detailcontent p img {
     width: 50px;
     background-color: #509bc3!important;
 }
-.search-form_top .mfp-close:active {  
+.search-form_top .mfp-close:active,
+.inner-notify-cookie .mfp-close:active {  
     top: calc(50% - 24px);
 }
 #mmenu-close,

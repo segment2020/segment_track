@@ -26,7 +26,7 @@ $showCounter = $arResult['SHOW_COUNTER']? $arResult['SHOW_COUNTER']: 0;
 		<? if ($arResult['DISPLAY_PROPERTIES']['companyId']['DISPLAY_VALUE']) 
 		{ ?>
 		<div class="detailinfofirm floatleft">
-			Товарный обзор компании <?= $arResult['DISPLAY_PROPERTIES']['companyId']['DISPLAY_VALUE'] ?>
+			Товарный обзор <?= $arResult['DISPLAY_PROPERTIES']['companyId']['DISPLAY_VALUE'] ?>
 		</div>
 		<div class="detailinfolink floatleft">
 			<a href="<?= $arResult['IBLOCK']['SECTION_PAGE_URL'] ?>?companyid=<?= $arResult['DISPLAY_PROPERTIES']['companyId']['VALUE'] ?>"><i class="icon-icons_main-10"></i><span>Все товарные обзоры компании</span></a>

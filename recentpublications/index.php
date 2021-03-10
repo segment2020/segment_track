@@ -20,7 +20,7 @@ $APPLICATION->SetTitle("Последние публикации");
 					<div class="infoblock"></div>
 				</div>
 				<?	// Разделение на список и детальную...
-					if (CSite::InDir('/news/companynews/index.php'))
+					if (CSite::InDir('/companynews/index.php'))
 						$APPLICATION->IncludeFile('/tpl/widgets/left/photogallery.php', array(), array());
 					else
 						$APPLICATION->IncludeFile('/tpl/widgets/left/top100.php', array(), array());?>
