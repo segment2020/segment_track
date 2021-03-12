@@ -18,7 +18,11 @@ else
 	$newMessageCount = '';
 ?>
 <a href="/personal/" class="list-group-item"><img src="/tpl/images/lkmenu1.png">Профиль пользователя</a>
-<?
+
+<? if ( CSite::InGroup(array(7)) ) {?>
+<a href="/personal/mymaterials/" class="list-group-item"><img src="/tpl/images/lkmenu1.png">Мои публикации</a>
+
+<? }  
 	use \Bitrix\Main\UserGroupTable;
 
 	$res = UserGroupTable::getList(array('filter' => array('USER_ID' => $USER->GetID(), 'GROUP_ID' => array(ID_GROUP_COMPANY_STAFF, ID_GROUP_COMPANY_ADMIN))));
@@ -86,7 +90,8 @@ $APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "smallCart", Ar
 ?>
 <a href="/personal/subscription/" class="list-group-item"><img src="/tpl/images/lkmenu3.png">Подписка на рассылку</a>
 
-<? if ( CSite::InGroup(array(1)) ) {?>
+<? if ( CSite::InGroup(array(11)) ) {?>
 <a href="/personal/moderation/" class="list-group-item"><img src="/tpl/images/lkmenu3.png">Модерация</a>
 
 <? } ?>
+
