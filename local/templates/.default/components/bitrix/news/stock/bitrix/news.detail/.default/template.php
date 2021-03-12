@@ -17,16 +17,21 @@ $this->setFrameMode(true);
 // viewsinc($arResult['ID'], $arResult['IBLOCK_ID'], $arResult['PROPERTIES']['companyId']['VALUE'], $arResult['DATE_CREATE']);
 
 $res = CIBlockElement::GetByID($arResult["ID"]);
-if ($ar_res = $res->GetNext())
+if ($ar_res = $res->GetNext()) {
+	$previewPicPath = CFile::GetPath($ar_res["PREVIEW_PICTURE"]); 
 	$showCounter = $ar_res['SHOW_COUNTER'];
+}
 // echo '<br>Дата первого показа: '.$ar_res['SHOW_COUNTER_START'];
 
 $msgCounter = isset($arResult['PROPERTIES']['FORUM_MESSAGE_CNT']['VALUE'])? $arResult['PROPERTIES']['FORUM_MESSAGE_CNT']['VALUE']: 0;
 
 if ($arResult["DETAIL_PICTURE"]["SRC"])
 	$file = CFile::ResizeImageGet($arResult["DETAIL_PICTURE"]["ID"], array('width'=>890, 'height'=>340), BX_RESIZE_IMAGE_PROPORTIONAL, true);
-else
-	$file['src'] = '';
+else if (!empty($previewPicPath)) { 
+	$file = CFile::ResizeImageGet($ar_res["PREVIEW_PICTURE"], array('width'=>890, 'height'=>340), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+}
+else 
+	$file['src'] = ''; 
 
 $dateCreate = FormatDate("d F Y", MakeTimeStamp($arResult["DATE_CREATE"]));
 ?>
